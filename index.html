@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gologenlar va Gologenitlarning Biologik Ahamiyati</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --secondary: #2dd4bf;
+            --accent: #f472b6;
+            --dark: #1e1b4b;
+            --light: #f8fafc;
+            --success: #22c55e;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--dark);
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            width: 90%;
+            height: 90%;
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.3);
+            position: relative;
+            overflow-y: auto;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 20px 0;
+        }
+
+        .objectives {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .objective-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 25px;
+            border-radius: 20px;
+            border-left: 5px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateX(10px);
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 20px 0;
+            border-left: 6px solid #f59e0b;
+        }
+
+        .question-text {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #78350f;
+            margin-bottom: 15px;
+        }
+
+        .solution {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 15px;
+            border: 2px dashed var(--success);
+        }
+
+        .solution.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(124, 58, 237, 0.4);
+        }
+
+        .btn-solution {
+            background: linear-gradient(135deg, #22c55e, #10b981);
+            margin-top: 10px;
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        .slide-number {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .icon {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .equation-box {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.3em;
+            border-left: 5px solid var(--primary);
+        }
+
+        .purple-panel {
+            background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+            padding: 50px;
+            border-radius: 25px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.4);
+            margin: 30px 0;
+        }
+
+        .purple-panel h2 {
+            color: white;
+            font-size: 2.2em;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .quiz-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .quiz-group {
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border: 3px solid var(--primary);
+        }
+
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 15px 0;
+        }
+
+        .quiz-option {
+            background: #f3f4f6;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: #e5e7eb;
+            transform: translateX(5px);
+        }
+
+        .quiz-option.correct {
+            background: #dcfce7;
+            border-color: var(--success);
+        }
+
+        .quiz-option.incorrect {
+            background: #fee2e2;
+            border-color: var(--error);
+        }
+
+        .quiz-result {
+            background: linear-gradient(135deg, #ddd6fe 0%, #c4b5fd 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .homework-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .homework-card {
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            padding: 30px;
+            border-radius: 20px;
+            border-top: 5px solid var(--accent);
+        }
+
+        .homework-card h3 {
+            color: #be123c;
+            margin-bottom: 15px;
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feedback-question {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            padding: 25px;
+            border-radius: 20px;
+        }
+
+        .feedback-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .feedback-option {
+            background: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid #22c55e;
+        }
+
+        .feedback-option:hover {
+            background: var(--success);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .conclusion-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(245, 158, 11, 0.3);
+        }
+
+        .balloon {
+            position: absolute;
+            font-size: 3em;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
+            padding: 35px;
+            border-radius: 20px;
+            border-left: 6px solid #ea580c;
+            margin: 25px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slayd 1: Plickers Takrorlash -->
+        <div class="slide active">
+            <div class="slide-number">1/9</div>
+            <div class="balloon" style="top: 50px; left: 100px;">🎈</div>
+            <div class="balloon" style="top: 120px; right: 150px; animation-delay: 1s;">🎈</div>
+            <div class="balloon" style="bottom: 200px; left: 200px; animation-delay: 2s;">🎈</div>
+            
+            <h1>🧪 O'TILGAN MAVZUNI TAKRORLASH</h1>
+            <h2><span class="icon">📱</span>Plickers orqali</h2>
+            
+            <div style="text-align: center; margin-top: 60px;">
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 60px; border-radius: 30px; display: inline-block;">
+                    <div style="font-size: 8em; margin-bottom: 20px;">📊</div>
+                    <h3 style="font-size: 2em; color: #78350f;">Plickers kartochkalarini tayyorlang!</h3>
+                    <p style="font-size: 1.5em; margin-top: 20px; color: #92400e;">O'tilgan mavzular bo'yicha savollar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 2: Mavzu va Maqsadlar -->
+        <div class="slide">
+            <div class="slide-number">2/9</div>
+            <div class="balloon" style="top: 80px; right: 120px;">🎯</div>
+            <div class="balloon" style="bottom: 150px; left: 180px; animation-delay: 1.5s;">🎯</div>
+            
+            <h1>GOLOGENLAR VA GOLOGENITLARNING BIOLOGIK AHAMIYATI</h1>
+            <h2><span class="icon">🎯</span>Dars Maqsadlari</h2>
+            
+            <div class="objectives">
+                <div class="objective-card">
+                    <h3>🔬 Bilim</h3>
+                    <p style="font-size: 1.2em; line-height: 1.6;">Gologenlar va gologenitlarning tirik organizmlar hayotidagi ahamiyatini tushunish</p>
+                </div>
+                <div class="objective-card">
+                    <h3>💡 Ko'nikma</h3>
+                    <p style="font-size: 1.2em; line-height: 1.6;">Gologenlarning biologik jarayonlardagi rolini tahlil qilish va masalalar yechish</p>
+                </div>
+                <div class="objective-card">
+                    <h3>🤝 Muloqot</h3>
+                    <p style="font-size: 1.2em; line-height: 1.6;">Guruhda ishlash va o'rganilgan bilimlarni hayotga tatbiq etish</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 3: Savollar -->
+        <div class="slide">
+            <div class="slide-number">3/9</div>
+            <div class="balloon" style="top: 60px; left: 90px;">❓</div>
+            <div class="balloon" style="top: 100px; right: 110px; animation-delay: 1s;">❓</div>
+            
+            <h2><span class="icon">💭</span>Hayotiy Savollar</h2>
+            
+            <div class="question-card">
+                <div class="question-text">1️⃣ Nima sababdan ba'zi hududlarda odamlar yod yetishmovchiligidan aziyat chekadi va bu muammoni aynan yodlangan osh tuzi orqali hal qilishadi?</div>
+                <button class="btn btn-solution" onclick="toggleSolution('sol1')">📖 Yechimni ko'rish</button>
+                <div class="solution" id="sol1">
+                    <strong>✅ Yechim:</strong> Tog'li va dengizdan uzoq hududlarda tuproq va suv tarkibida yod kamchilik seziladi. Inson organizmiga yod qalqonsimon bez gormonlari (tiroksin) ishlab chiqarish uchun zarur. Yod yetishmasligi guatr kasalligiga olib keladi. Yodlangan osh tuzi kundalik ovqat bilan oson va arzon yod manbai hisoblanadi.
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">2️⃣ Ichimlik suvi ko'pincha xlorlanadi. Nima sababdan aynan xlor suvni tozalashda ishlatiladi, boshqa galogenlar emas?</div>
+                <button class="btn btn-solution" onclick="toggleSolution('sol2')">📖 Yechimni ko'rish</button>
+                <div class="solution" id="sol2">
+                    <strong>✅ Yechim:</strong> Xlor kuchli oksidlovchi va dezinfeksiyalovchi xususiyatga ega. U bakteriya, virus va mikroorganizmlarni samarali yo'q qiladi. Ftor juda reaktiv va xavfli, brom qimmat va kam samarali, yod esa suvda yomon eriydi. Xlor arzon, samarali va xavfsiz miqdorda ishlatilganda inson salomatligiga zarar yetkazmaydi.
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">3️⃣ Dorixonalarda yara va kasaliklarni davolashda yod eritmasi ishlatiladi. Nima uchun aynan yod dezinfeksiya uchun qulay hisoblanadi?</div>
+                <button class="btn btn-solution" onclick="toggleSolution('sol3')">📖 Yechimni ko'rish</button>
+                <div class="solution" id="sol3">
+                    <strong>✅ Yechim:</strong> Yod kuchli antiseptik xususiyatga ega va bakteriyalarning oqsil tuzilmasini buzadi. U terini yoqtirib yubormaydi va xavfsizroq. Yod eritmasi oson qo'llaniladi va tez quraydi. Shuningdek, yod teriga tushganda ko'rinadigan iz qoldiradi, bu davolangan joyni aniqlashga yordam beradi.
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">4️⃣ Suv xlorlanganda bakteriyalarni qanday o'ldiradi?</div>
+                <button class="btn btn-solution" onclick="toggleSolution('sol4')">📖 Yechimni ko'rish</button>
+                <div class="solution" id="sol4">
+                    <strong>✅ Yechim:</strong> Xlor suvda HClO (gipoxlorit kislota) hosil qiladi. Bu kislota bakteriya hujayra devoriga kirib, oqsillarni va DNKni oksidlaydi, natijada bakteriya nobud bo'ladi. Bu jarayon tez va samarali.
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text">5️⃣ Tishlar tarkibida qaysi galogen uchraydi?</div>
+                <button class="btn btn-solution" onclick="toggleSolution('sol5')">📖 Yechimni ko'rish</button>
+                <div class="solution" id="sol5">
+                    <strong>✅ Yechim:</strong> Tishlar tarkibida <strong>FTOR (F)</strong> elementi uchraydi. Ftor tish emalini mustahkamlaydi va tish chiri (karies)dan himoya qiladi. Shuning uchun tish pastalarida ftor birikmalar ishlatiladi.
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 4: Reaksiya Tenglamalari -->
+        <div class="slide">
+            <div class="slide-number">4/9</div>
+            <div class="balloon" style="top: 70px; right: 100px;">⚗️</div>
+            
+            <h2><span class="icon">🧮</span>Tarqatmalardagi Topshiriqlar</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px;">Quyidagi reaksiyalarda noma'lum moddalarni aniqlang:</p>
+            
+            <div class="equation-box">
+                <strong>1.</strong> ______ + H₂SO₄ = NaHSO₄ + HCl
+            </div>
+            <div class="equation-box">
+                <strong>2.</strong> CaO + 2HCl = ______ + H₂O
+            </div>
+            <div class="equation-box">
+                <strong>3.</strong> Ca + ______ = CaCl₂
+            </div>
+            <div class="equation-box">
+                <strong>4.</strong> 2KBr + Cl₂ = 2KCl + ______
+            </div>
+
+            <button class="btn btn-solution" onclick="toggleSolution('sol-eq')" style="margin-top: 30px;">📖 Yechim va Izohni ko'rish</button>
+            <div class="solution" id="sol-eq">
+                <h3 style="color: var(--success); margin-bottom: 20px;">✅ To'liq Yechim</h3>
+                
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <strong style="color: #15803d;">1. NaCl + H₂SO₄ = NaHSO₄ + HCl</strong>
+                    <p style="margin-top: 10px;">💡 <em>Izoh: Natriy xlorid kislota bilan reaksiyaga kirib, vodorod xlorid ajralib chiqadi.</em></p>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <strong style="color: #15803d;">2. CaO + 2HCl = CaCl₂ + H₂O</strong>
+                    <p style="margin-top: 10px;">💡 <em>Izoh: Asosli oksid kislota bilan reaksiyaga kirib, tuz va suv hosil qiladi.</em></p>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <strong style="color: #15803d;">3. Ca + Cl₂ = CaCl₂</strong>
+                    <p style="margin-top: 10px;">💡 <em>Izoh: Metall galogen bilan to'g'ridan-to'g'ri birikib, tuz hosil qiladi.</em></p>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 15px; margin: 15px 0;">
+                    <strong style="color: #15803d;">4. 2KBr + Cl₂ = 2KCl + Br₂</strong>
+                    <p style="margin-top: 10px;">💡 <em>Izoh: Kuchliroq galogen (Cl) zaifroq galogenni (Br) siqib chiqaradi - o'rin almashtirish reaksiyasi.</em></p>
+                </div>
+
+                <div style="background: #fef3c7; padding: 20px; border-radius: 15px; margin-top: 20px;">
+                    <strong>🔍 Aniqlash ketma-ketligi:</strong>
+                    <ol style="margin-top: 10px; margin-left: 20px; line-height: 2;">
+                        <li>Reaksiya mahsulotlarini tahlil qiling</li>
+                        <li>Elementlar muvozanatini tekshiring</li>
+                        <li>Kimyoviy bog'lanish turini aniqlang</li>
+                        <li>Valentlikni tekshiring</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 5: Oksidlanish Darajasi -->
+        <div class="slide">
+            <div class="slide-number">5/9</div>
+            <div class="balloon" style="top: 90px; left: 120px;">🔢</div>
+            <div class="balloon" style="bottom: 180px; right: 140px; animation-delay: 1s;">🔢</div>
+            
+            <h2><span class="icon">🧬</span>Oksidlanish Darajasini Aniqlash</h2>
+            
+            <div class="purple-panel">
+                <h2 style="margin-bottom: 30px;">KIO₃</h2>
+                <p style="font-size: 1.8em; margin-bottom: 20px;">Ushbu modda tarkibidagi Yod elementining oksidlanish darajasini aniqlang</p>
+                <div style="font-size: 6em; margin: 30px 0;">🤔</div>
+                <button class="btn" onclick="toggleSolution('sol-ox')" style="background: white; color: var(--primary); font-size: 1.3em;">📊 Yechimni ko'rish</button>
+            </div>
+
+            <div class="solution" id="sol-ox">
+                <h3 style="color: var(--primary); text-align: center; margin-bottom: 25px;">✅ Yechim</h3>
+                <div style="background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); padding: 30px; border-radius: 20px;">
+                    <p style="font-size: 1.4em; line-height: 2; text-align: center;">
+                        <strong>KIO₃</strong> formulasida:<br><br>
+                        K (kaliy) = +1<br>
+                        O (kislorod) = -2<br><br>
+                        Formuladan: (+1) + x + 3×(-2) = 0<br>
+                        1 + x - 6 = 0<br>
+                        x = +5<br><br>
+                        <span style="color: var(--primary); font-size: 1.5em; font-weight: 800;">Javob: Yodning oksidlanish darajasi +5</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 6: Muammoli Vaziyat -->
+        <div class="slide">
+            <div class="slide-number">6/9</div>
+            <div class="balloon" style="top: 80px; right: 130px;">⚠️</div>
+            
+            <h2><span class="icon">🏥</span>Muammoli Vaziyat</h2>
+            
+            <div class="problem-card">
+                <h3 style="color: #c2410c; margin-bottom: 20px;">📋 Vaziyat tavsifi</h3>
+                <p style="font-size: 1.3em; line-height: 1.8; margin-bottom: 20px;">
+                    Bir oilada ovqatlar doimo juda sho'r tayyorlanadi. Oila a'zolari har kuni ovqatga ko'p miqdorda osh tuzi (NaCl) qo'shib iste'mol qiladi. Vaqt o'tishi bilan ba'zi oilaviy a'zolarda chanqash kuchayadi, shish paydo bo'ladi va qon bosimi ko'tariladi. Shifokor ularning ovqatida osh tuzi miqdorini kamaytirishni tavsiya qiladi.
+                </p>
+                
+                <div style="background: #fff7ed; padding: 25px; border-radius: 15px; border: 3px dashed #ea580c; margin-top: 20px;">
+                    <h3 style="color: #9a3412; margin-bottom: 15px;">❓ Savol:</h3>
+                    <p style="font-size: 1.3em; line-height: 1.8; color: #7c2d12;">
+                        Nima sababdan organizmda Cl⁻ ionlari ko'payib ketishi suvni ushlab qolishga olib keladi?
+                    </p>
+                </div>
+
+                <button class="btn btn-solution" onclick="toggleSolution('sol-problem')" style="margin-top: 25px;">🔬 Yechimni ko'rish</button>
+                <div class="solution" id="sol-problem">
+                    <h3 style="color: var(--success); margin-bottom: 20px;">✅ Yechim</h3>
+                    <div style="background: #ecfdf5; padding: 25px; border-radius: 15px;">
+                        <p style="font-size: 1.3em; line-height: 1.9;">
+                            <strong>Osh tuzi tarkibidagi Cl⁻ ionlari ko'payganda organizmda osmotik bosim oshadi.</strong><br><br>
+                            
+                            🔹 Suv ko'p ion bo'lgan muhitga tortiladi (osmoz hodisasi)<br>
+                            🔹 Ionlar tufayli suv qon tomirlari va to'qimalarda ushlanib qoladi<br>
+                            🔹 Bu jarayon natijasida:<br>
+                            &nbsp;&nbsp;&nbsp;• Shish (ödema) paydo bo'ladi<br>
+                            &nbsp;&nbsp;&nbsp;• Chanqash kuchayadi<br>
+                            &nbsp;&nbsp;&nbsp;• Qon bosimi ko'tariladi<br><br>
+                            
+                            💡 <strong>Xulosa:</strong> Organizmda Na⁺ va Cl⁻ ionlari muvozanatini saqlash juda muhim. Haddan tashqari tuz iste'moli turli kasalliklarga sabab bo'ladi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 7: Viktorina -->
+        <div class="slide">
+            <div class="slide-number">7/9</div>
+            <div class="balloon" style="top: 60px; left: 100px;">🎮</div>
+            <div class="balloon" style="top: 80px; right: 120px; animation-delay: 1.2s;">🎮</div>
+            
+            <h2><span class="icon">🏆</span>Qiziqarli Viktorina</h2>
+            <p style="font-size: 1.4em; text-align: center; margin-bottom: 30px;">Har bir guruh 12 ta savolga javob beradi. Vaqt: 5 daqiqa ⏰</p>
+            
+            <button class="btn" onclick="startQuiz()" id="startQuizBtn" style="font-size: 1.4em; padding: 20px 50px; display: block; margin: 30px auto;">
+                🚀 Viktorinani Boshlash
+            </button>
+
+            <div id="quizContainer" style="display: none;">
+                <div class="quiz-container">
+                    <!-- Guruh 1 -->
+                    <div class="quiz-group">
+                        <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">👥 1-Guruh</h3>
+                        <div id="group1"></div>
+                        <div id="result1" class="quiz-result" style="display: none;"></div>
+                    </div>
+
+                    <!-- Guruh 2 -->
+                    <div class="quiz-group">
+                        <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">👥 2-Guruh</h3>
+                        <div id="group2"></div>
+                        <div id="result2" class="quiz-result" style="display: none;"></div>
+                    </div>
+
+                    <!-- Guruh 3 -->
+                    <div class="quiz-group">
+                        <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">👥 3-Guruh</h3>
+                        <div id="group3"></div>
+                        <div id="result3" class="quiz-result" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <div id="finalResult" class="quiz-result" style="display: none; margin-top: 40px;"></div>
+            </div>
+        </div>
+
+        <!-- Slayd 8: Uyga Vazifa -->
+        <div class="slide">
+            <div class="slide-number">8/9</div>
+            <div class="balloon" style="top: 70px; left: 110px;">📚</div>
+            <div class="balloon" style="bottom: 160px; right: 130px; animation-delay: 1.5s;">📚</div>
+            
+            <h2><span class="icon">🏠</span>Uyga Vazifa</h2>
+            
+            <div class="homework-grid">
+                <div class="homework-card">
+                    <h3>⭐ Oddiy Daraja</h3>
+                    <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
+                        <strong>Topshiriq:</strong><br>
+                        1. Gologenlarning biologik ahamiyatini 5 ta misolda yozing<br><br>
+                        2. Yodlangan tuz va oddiy tuzning farqini tushuntiring<br><br>
+                        3. Uy sharoitida gologenlarni qanday ishlatamiz? 3 ta misol keltiring
+                    </p>
+                </div>
+
+                <div class="homework-card">
+                    <h3>⭐⭐ O'rtacha Daraja</h3>
+                    <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
+                        <strong>Loyiha ishi:</strong><br>
+                        1. "Gologenlar va sog'liq" mavzusida kichik tadqiqot olib boring<br><br>
+                        2. Osh tuzining organizmdagi roli haqida prezentatsiya tayyorlang<br><br>
+                        3. Suvni tozalashda xlor ishlatishning ijobiy va salbiy tomonlarini taqqoslang
+                    </p>
+                </div>
+
+                <div class="homework-card">
+                    <h3>⭐⭐⭐ Murakkab Daraja</h3>
+                    <p style="font-size: 1.2em; line-height: 1.7; margin-top: 15px;">
+                        <strong>Katta loyiha:</strong><br>
+                        1. Mahallangizda yod yetishmovchiligi muammosini o'rganing va tahlil qiling<br><br>
+                        2. "Gologenlar: foyda va zarar" mavzusida ilmiy maqola yozing<br><br>
+                        3. Gologenlarning tibbiyotda qo'llanishi haqida video-taqdimot yarating
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slayd 9: Fikr-Mulohaza -->
+        <div class="slide">
+            <div class="slide-number">9/9</div>
+            <div class="balloon" style="top: 90px; right: 140px;">💭</div>
+            <div class="balloon" style="bottom: 170px; left: 150px; animation-delay: 1s;">💭</div>
+            
+            <h2><span class="icon">📝</span>Sizning Fikr-Mulohazangiz</h2>
+            
+            <div class="feedback-grid">
+                <div class="feedback-question">
+                    <h3>1️⃣ Bugungi mavzuni qanchalik tushundingiz?</h3>
+                    <div class="feedback-options">
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Juda yaxshi tushundim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Yaxshi tushundim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Biroz qiynaldim</div>
+                    </div>
+                </div>
+
+                <div class="feedback-question">
+                    <h3>2️⃣ Savol va masalalarni bajara oldingizmi?</h3>
+                    <div class="feedback-options">
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Hammasini yaxshi bajardim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Ko'pini bajardim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Ba'zilarida qiynaldim</div>
+                    </div>
+                </div>
+
+                <div class="feedback-question">
+                    <h3>3️⃣ Guruhda ishlash sizga qanday bo'ldi?</h3>
+                    <div class="feedback-options">
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Juda yaxshi ishladim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Yaxshi ishladim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Unchalik faol bo'lolmadim</div>
+                    </div>
+                </div>
+
+                <div class="feedback-question">
+                    <h3>4️⃣ Bugungi dars sizga foydali bo'ldimi?</h3>
+                    <div class="feedback-options">
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Juda foydali bo'ldi</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Foydali ma'lumot oldim</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Unchalik foydali bo'lmadi</div>
+                    </div>
+                </div>
+
+                <div class="feedback-question">
+                    <h3>5️⃣ Bugun o'rgangan mavzuni boshqalarga tushuntira olasizmi?</h3>
+                    <div class="feedback-options">
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Ha, bemalol tushuntiraman</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Qisman tushuntira olaman</div>
+                        <div class="feedback-option" onclick="selectFeedback(this)">⬜ Hali qiynalaman</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="conclusion-box" style="margin-top: 40px;">
+                <h2 style="color: #78350f; margin-bottom: 25px;">🎓 Dars Xulosasi</h2>
+                <p style="font-size: 1.5em; line-height: 1.9; color: #92400e;">
+                    <strong>Bugun biz gologenlarning hayotdagi muhim rolini o'rgandik!</strong><br><br>
+                    
+                    ✨ Gologenlar organizm uchun zarur elementlar<br>
+                    🧪 Ular sog'liqni saqlash va kasalliklarni oldini olishda muhim rol o'ynaydi<br>
+                    💡 Kundalik hayotda gologenlardan to'g'ri foydalanish kerak<br><br>
+                    
+                    <span style="font-size: 1.3em; color: #b45309;">
+                        Esda tuting: Kimyo fani – bu hayot fani! 🌟
+                    </span>
+                </p>
+                <div style="font-size: 4em; margin-top: 30px;">🎉🎊🏆</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="prevSlide()">⬅️ Oldingi</button>
+        <button class="nav-btn" onclick="nextSlide()">Keyingi ➡️</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function toggleSolution(id) {
+            const solution = document.getElementById(id);
+            solution.classList.toggle('show');
+        }
+
+        function selectFeedback(element) {
+            // Toggle selection
+            if (element.style.background === 'rgb(34, 197, 94)') {
+                element.style.background = '';
+                element.style.color = '';
+            } else {
+                element.style.background = '#22c55e';
+                element.style.color = 'white';
+            }
+        }
+
+        // Viktorina
+        const quizData = [
+            {q: "Qaysi galogen eng kuchli oksidlovchi?", opts: ["Ftor", "Xlor", "Brom", "Yod"], correct: 0},
+            {q: "Tish emalini mustahkamlovchi galogen?", opts: ["Xlor", "Ftor", "Yod", "Brom"], correct: 1},
+            {q: "Yodlangan tuz qanday kasallikning oldini oladi?", opts: ["Shamollash", "Guatr", "Gripp", "Qizamiq"], correct: 1},
+            {q: "Ichimlik suvini tozalashda qaysi galogen ishlatiladi?", opts: ["Ftor", "Xlor", "Brom", "Yod"], correct: 1},
+            {q: "Dengiz suvida eng ko'p qaysi galogen bor?", opts: ["Xlor", "Brom", "Yod", "Ftor"], correct: 0},
+            {q: "Qaysi galogen xona haroratida suyuq?", opts: ["Ftor", "Xlor", "Brom", "Yod"], correct: 2},
+            {q: "Yod eritmasining rangi qanday?", opts: ["Yashil", "Jigarrang", "Sariq", "Pushti"], correct: 1},
+            {q: "NaCl moddasi qanday ataladi?", opts: ["Osh tuzi", "Shakar", "Soda", "Kraxmal"], correct: 0},
+            {q: "Gologenlar davriy sistemaning qaysi guruhida?", opts: ["VI", "VII", "VIII", "V"], correct: 1},
+            {q: "Qalqonsimon bez qaysi elementni talab qiladi?", opts: ["Xlor", "Ftor", "Yod", "Brom"], correct: 2},
+            {q: "HCl kislota qanday ataladi?", opts: ["Oltingugurt kislota", "Xlorid kislota", "Nitrat kislota", "Fosfat kislota"], correct: 1},
+            {q: "Gologenlarning reaktivligi qaysi tartibda kamayadi?", opts: ["F>Cl>Br>I", "I>Br>Cl>F", "Cl>F>Br>I", "Br>Cl>F>I"], correct: 0}
+        ];
+
+        let groupScores = [0, 0, 0];
+        let currentQuestion = [0, 0, 0];
+        let shuffledQuestions = [[], [], []];
+
+        function startQuiz() {
+            document.getElementById('startQuizBtn').style.display = 'none';
+            document.getElementById('quizContainer').style.display = 'block';
+            
+            // Shuffle questions for each group
+            for (let g = 0; g < 3; g++) {
+                shuffledQuestions[g] = [...quizData].sort(() => Math.random() - 0.5);
+            }
+            
+            // Show first question for each group
+            for (let g = 1; g <= 3; g++) {
+                showQuestion(g, 0);
+            }
+        }
+
+        function showQuestion(group, qIndex) {
+            const container = document.getElementById('group' + group);
+            const question = shuffledQuestions[group - 1][qIndex];
+            
+            let html = `
+                <div class="quiz-question">
+                    <p style="font-weight: 700; font-size: 1.2em; margin-bottom: 15px;">Savol ${qIndex + 1}/12:</p>
+                    <p style="font-size: 1.1em; margin-bottom: 15px;">${question.q}</p>
+            `;
+            
+            question.opts.forEach((opt, i) => {
+                html += `<div class="quiz-option" onclick="checkAnswer(${group}, ${qIndex}, ${i}, ${question.correct})">${opt}</div>`;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function checkAnswer(group, qIndex, selected, correct) {
+            const options = document.querySelectorAll(`#group${group} .quiz-option`);
+            
+            options.forEach((opt, i) => {
+                opt.style.pointerEvents = 'none';
+                if (i === correct) {
+                    opt.classList.add('correct');
+                } else if (i === selected && selected !== correct) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            if (selected === correct) {
+                groupScores[group - 1]++;
+            }
+
+            // Show next button
+            const container = document.getElementById('group' + group);
+            const existingBtn = container.querySelector('.next-question-btn');
+            if (!existingBtn) {
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'btn next-question-btn';
+                nextBtn.innerHTML = '➡️ Keyingi savol';
+                nextBtn.style.marginTop = '20px';
+                nextBtn.style.width = '100%';
+                nextBtn.onclick = () => {
+                    currentQuestion[group - 1]++;
+                    if (currentQuestion[group - 1] < 12) {
+                        showQuestion(group, currentQuestion[group - 1]);
+                    } else {
+                        showGroupResult(group);
+                    }
+                };
+                container.appendChild(nextBtn);
+            }
+        }
+
+        function showGroupResult(group) {
+            const score = groupScores[group - 1];
+            const percentage = Math.round((score / 12) * 100);
+            let grade = '';
+            let gradeColor = '';
+            
+            if (percentage >= 80) {
+                grade = '🏆 A\'LO';
+                gradeColor = '#22c55e';
+            } else if (percentage >= 66) {
+                grade = '🥈 YAXSHI';
+                gradeColor = '#3b82f6';
+            } else if (percentage >= 46) {
+                grade = '🥉 QONIQARLI';
+                gradeColor = '#f59e0b';
+            } else {
+                grade = '📚 TAKRORLASH KERAK';
+                gradeColor = '#ef4444';
+            }
+
+            const container = document.getElementById('result' + group);
+            container.innerHTML = `
+                <div style="font-size: 1.3em;">
+                    ✅ To'g'ri: ${score}/12<br>
+                    ❌ Xato: ${12 - score}/12<br>
+                    <div style="margin: 15px 0; font-size: 2em; font-weight: 800; color: ${gradeColor};">${percentage}%</div>
+                    <span style="font-size: 1.4em; color: ${gradeColor};">${grade}</span>
+                </div>
+            `;
+            container.style.display = 'block';
+
+            // Check if all groups finished
+            if (currentQuestion.every(q => q === 12)) {
+                showFinalResult();
+            }
+        }
+
+        function showFinalResult() {
+            const totalCorrect = groupScores.reduce((a, b) => a + b, 0);
+            const totalQuestions = 36; // 3 groups × 12 questions
+            const classPercentage = Math.round((totalCorrect / totalQuestions) * 100);
+            
+            let classGrade = '';
+            let classColor = '';
+            
+            if (classPercentage >= 80) {
+                classGrade = '🎉 A\'LO NATIJA!';
+                classColor = '#22c55e';
+            } else if (classPercentage >= 66) {
+                classGrade = '👍 YAXSHI NATIJA!';
+                classColor = '#3b82f6';
+            } else if (classPercentage >= 46) {
+                classGrade = '📖 QONIQARLI NATIJA';
+                classColor = '#f59e0b';
+            } else {
+                classGrade = '💪 TAKRORLASH KERAK';
+                classColor = '#ef4444';
+            }
+
+            const container = document.getElementById('finalResult');
+            container.innerHTML = `
+                <h2 style="color: var(--primary); margin-bottom: 30px; font-size: 2.5em;">📊 YAKUNIY NATIJALAR</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 40px;">
+                    ${[1, 2, 3].map(g => {
+                        const gScore = groupScores[g - 1];
+                        const gPercentage = Math.round((gScore / 12) * 100);
+                        let gGrade = '';
+                        let gColor = '';
+                        
+                        if (gPercentage >= 80) {
+                            gGrade = 'A\'LO';
+                            gColor = '#22c55e';
+                        } else if (gPercentage >= 66) {
+                            gGrade = 'YAXSHI';
+                            gColor = '#3b82f6';
+                        } else if (gPercentage >= 46) {
+                            gGrade = 'QONIQARLI';
+                            gColor = '#f59e0b';
+                        } else {
+                            gGrade = 'TAKRORLASH';
+                            gColor = '#ef4444';
+                        }
+                        
+                        return `
+                            <div style="background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); padding: 25px; border-radius: 20px; border: 3px solid ${gColor};">
+                                <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 1.8em;">👥 ${g}-Guruh</h3>
+                                <div style="font-size: 1.2em; line-height: 1.8;">
+                                    <div>✅ To'g'ri: <strong>${gScore}</strong></div>
+                                    <div>❌ Xato: <strong>${12 - gScore}</strong></div>
+                                    <div style="margin: 15px 0; font-size: 2.5em; font-weight: 800; color: ${gColor};">${gPercentage}%</div>
+                                    <div style="background: ${gColor}; color: white; padding: 10px; border-radius: 15px; font-weight: 700; font-size: 1.3em;">
+                                        ${gGrade}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 40px; border-radius: 25px; border: 5px solid ${classColor};">
+                    <h2 style="color: #78350f; margin-bottom: 25px; font-size: 2.2em;">🏫 BUTUN SINF NATIJALARI</h2>
+                    <div style="font-size: 1.5em; line-height: 2; color: #92400e;">
+                        <div>📝 Jami savollar: <strong>${totalQuestions}</strong></div>
+                        <div>✅ To'g'ri javoblar: <strong>${totalCorrect}</strong></div>
+                        <div>❌ Xato javoblar: <strong>${totalQuestions - totalCorrect}</strong></div>
+                        <div style="margin: 25px 0; font-size: 3em; font-weight: 800; color: ${classColor};">
+                            ${classPercentage}%
+                        </div>
+                        <div style="background: ${classColor}; color: white; padding: 20px; border-radius: 20px; font-weight: 700; font-size: 1.5em; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                            ${classGrade}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 30px; text-align: center;">
+                    <div style="font-size: 5em; margin: 20px 0;">
+                        ${classPercentage >= 80 ? '🎉🏆🎊' : classPercentage >= 66 ? '👏👍🌟' : '📚💪📖'}
+                    </div>
+                    <p style="font-size: 1.4em; color: #78350f; font-weight: 600;">
+                        ${classPercentage >= 80 
+                            ? 'Ajoyib! Siz mavzuni mukammal o\'zlashtirdingiz!' 
+                            : classPercentage >= 66 
+                            ? 'Yaxshi ish! Davom eting!' 
+                            : 'Takrorlash orqali yanada yaxshi natijalarga erishasiz!'}
+                    </p>
+                </div>
+            `;
+            container.style.display = 'block';
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+    </script>
+</body>
+</html>
