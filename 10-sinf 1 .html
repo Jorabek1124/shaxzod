@@ -1,0 +1,1131 @@
+<!doctype html>
+<html lang="uz" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Etilen glikol va gliserinning xossalari</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Nunito', sans-serif;
+    }
+    .slide {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .slide.active {
+      display: flex;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .molecule {
+      animation: float 3s ease-in-out infinite;
+    }
+    .btn-glow:hover {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    }
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    .gradient-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    .glass {
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+    }
+    .quiz-option {
+      transition: all 0.3s ease;
+    }
+    .quiz-option:hover:not(.disabled) {
+      transform: scale(1.02);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+    .quiz-option.correct {
+      background: linear-gradient(135deg, #10b981, #059669) !important;
+      color: white !important;
+      transform: scale(1.05);
+    }
+    .quiz-option.incorrect {
+      background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+      color: white !important;
+    }
+    .progress-bar {
+      transition: width 0.5s ease;
+    }
+    .variant-card {
+      transition: all 0.3s ease;
+    }
+    .variant-card:hover {
+      transform: translateY(-3px);
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1.5rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 overflow-auto">
+  <div id="app" class="h-full w-full flex flex-col"><!-- Navigation -->
+   <nav class="flex-shrink-0 glass px-6 py-3 flex justify-between items-center shadow-lg">
+    <div class="flex items-center gap-3"><span class="text-3xl">🧪</span> <span class="font-bold text-purple-800 text-lg">Kimyo Darsi</span>
+    </div>
+    <div class="flex items-center gap-2"><span id="slideIndicator" class="text-purple-700 font-semibold">1 / 13</span>
+    </div>
+   </nav><!-- Slides Container -->
+   <div id="slidesContainer" class="flex-1 p-4 md:p-6 overflow-auto"><!-- Slide 1: Mavzu va Maqsadlar -->
+    <div class="slide active flex-col items-center justify-center min-h-full" data-slide="1">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8">
+       <div class="molecule inline-block text-6xl mb-4">
+        ⚗️
+       </div>
+       <h1 id="mainTitle" class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">Etilen glikol va gliserinning xossalari</h1>
+       <p class="text-gray-600 text-lg">10-sinf | Kimyo fani | Ochiq dars</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+       <div class="card-hover bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl p-6 text-white transition-all duration-300 cursor-default">
+        <div class="text-4xl mb-3">
+         📚
+        </div>
+        <h3 class="font-bold text-lg mb-2">Ta'limiy maqsad</h3>
+        <p class="text-blue-100 text-sm">Etilen glikol va gliserinning kimyoviy xossalarini o'rganish va ularning farqlarini tushunish</p>
+       </div>
+       <div class="card-hover bg-gradient-to-br from-green-500 to-green-600 rounded-2xl p-6 text-white transition-all duration-300 cursor-default">
+        <div class="text-4xl mb-3">
+         🧠
+        </div>
+        <h3 class="font-bold text-lg mb-2">Rivojlantiruvchi maqsad</h3>
+        <p class="text-green-100 text-sm">O'quvchilarning tahlil qilish, solishtirish va mantiqiy fikrlash ko'nikmalarini rivojlantirish</p>
+       </div>
+       <div class="card-hover bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl p-6 text-white transition-all duration-300 cursor-default">
+        <div class="text-4xl mb-3">
+         ❤️
+        </div>
+        <h3 class="font-bold text-lg mb-2">Tarbiyaviy maqsad</h3>
+        <p class="text-orange-100 text-sm">Xavfsizlik qoidalariga rioya qilish va atrof-muhitni muhofaza qilish hissi</p>
+       </div>
+      </div>
+     </div>
+    </div><!-- Slide 2: Video Slayd (YANGI) -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="2">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-6xl w-full shadow-2xl">
+      <div class="text-center mb-8"><button id="videoPlayBtn" onclick="playVideo()" class="text-6xl mb-4 block hover:scale-110 transition-transform cursor-pointer">🎬</button>
+       <h2 id="videoTitle" class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Dars video</h2>
+       <p class="text-gray-600">Video orqali mavzu bilan tanishamiz</p>
+      </div>
+      <div class="mb-6">
+       <div id="videoContainer" class="video-container shadow-2xl hidden"><iframe id="videoEmbed" src="https://www.youtube.com/embed/W2MpGCL8-9o?si=3o8oQVWrTSiZzWgz&amp;autoplay=1" allowfullscreen loading="lazy"></iframe>
+       </div>
+      </div>
+     </div>
+    </div><!-- Slide 3: Mavzuga doir savol -->
+    <div class="slide flex-col items-center justify-start min-h-full" data-slide="3">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-5xl w-full shadow-2xl overflow-y-auto">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">❓</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">Mavzuga doir savollar</h2>
+      </div>
+      <div class="space-y-6"><!-- 1-SAVOL VA YECHIMI -->
+       <div>
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-6 shadow-lg mb-3">
+         <h3 class="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-3xl">  </span> 1-SAVOL</h3>
+         <p class="text-white text-lg font-semibold">Avtomobil uchun antifriz qanday ahamiyatga ega?</p>
+        </div><button onclick="toggleSolution(1)" class="w-full btn-glow bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-xl font-bold text-lg transition-all duration-300 hover:from-blue-600 hover:to-blue-700 mb-4"> <span id="solutionBtn1">🔓 1-SAVOL YECHIMINI KO'RISH</span> </button>
+        <div id="solution1" style="display: none;">
+         <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-l-4 border-green-500 shadow-lg">
+          <h4 class="font-bold text-green-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">  </span> 1-SAVOL YECHIMI</h4>
+          <div class="space-y-4 text-gray-700">
+           <p class="flex items-start gap-3"><span class="text-2xl">❄️</span> <span><strong>Muzlashdan himoya:</strong> Antifriz (asosan etilen glikol) suvning muzlash haroratini pasaytiradi. Oddiy suv 0°C da muzlaydi, lekin antifriz qo'shilsa -40°C gacha muzlamaydi.</span></p>
+           <p class="flex items-start gap-3"><span class="text-2xl">🔥</span> <span><strong>Qaynatishdan himoya:</strong> Antifriz suvning qaynash haroratini ham oshiradi, shuning uchun dvigatel qizib ketganda ham suv qaynamaydi.</span></p>
+           <p class="flex items-start gap-3"><span class="text-2xl">⚙️</span> <span><strong>Dvigatel himoyasi:</strong> Qishda suv muzlasa, radiator va dvigatel yorilishi mumkin. Antifriz buni oldini oladi va avtomobilni uzoq muddat xizmat qildiradi.</span></p>
+           <div class="mt-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+            <p class="text-yellow-800 font-semibold text-sm">💡 Hayotiy misol: Qishda avtomobilingiz radiatorida antifriz bo'lmasa, bir kechada dvigatel muzlab, minglab dollar zarar yetkazishi mumkin!</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div><!-- 2-SAVOL VA YECHIMI -->
+       <div>
+        <div class="bg-gradient-to-r from-amber-600 to-orange-600 rounded-2xl p-6 shadow-lg mb-3">
+         <h3 class="text-xl md:text-2xl font-bold text-white mb-3 flex items-center gap-2"><span class="text-3xl">❓</span> 2-SAVOL</h3>
+         <p class="text-white text-lg font-semibold">E 422 raqami ostidagi oziq-ovqat qo'shimchasi nima?</p>
+        </div><button onclick="toggleSolution(2)" class="w-full btn-glow bg-gradient-to-r from-amber-500 to-orange-600 text-white py-3 rounded-xl font-bold text-lg transition-all duration-300 hover:from-amber-600 hover:to-orange-700 mb-4"> <span id="solutionBtn2">🔓 2-SAVOL YECHIMINI KO'RISH</span> </button>
+        <div id="solution2" style="display: none;">
+         <div class="bg-gradient-to-br from-yellow-50 to-amber-50 rounded-2xl p-6 border-l-4 border-amber-500 shadow-lg">
+          <h4 class="font-bold text-amber-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">✅</span> 2-SAVOL YECHIMI</h4>
+          <div class="space-y-4 text-gray-700">
+           <div class="flex items-start gap-3 p-3 bg-white rounded-lg border-l-4 border-purple-500"><span class="text-2xl">🏷️</span>
+            <div>
+             <p class="font-bold text-purple-800 text-lg">E 422 = GLISERIN!</p>
+             <p class="text-sm text-gray-600 mt-1">Avropa va dunyo bozorida turli oziq-ovqat mahsulotlari tarkibida berilgan kod</p>
+            </div>
+           </div>
+           <div class="flex items-start gap-3 p-3 bg-white rounded-lg border-l-4 border-green-500"><span class="text-2xl">✨</span>
+            <div>
+             <p class="font-bold text-green-800">Nima uchun ishlatiladi?</p>
+             <ul class="text-sm text-gray-600 mt-1 space-y-1">
+              <li>• <strong>Namlaydi</strong> — qo'l kremlarida, sovunlarda</li>
+              <li>• <strong>Yumshatadi</strong> — chocolatlar, karameller, konfetlarda</li>
+              <li>• <strong>Konservantidir</strong> — buladiga, sosislarda</li>
+              <li>• <strong>Usta tejaydi</strong> — mehvajlarda, marmeladdda</li>
+             </ul>
+            </div>
+           </div>
+           <div class="flex items-start gap-3 p-3 bg-white rounded-lg border-l-4 border-blue-500"><span class="text-2xl">❤️</span>
+            <div>
+             <p class="font-bold text-blue-800">Xavfsizlik</p>
+             <p class="text-sm text-gray-600 mt-1">Xalq sog'lig'i uchun xavfsiz! EFSA va FDA tomonidan rozilik berilgan</p>
+            </div>
+           </div>
+           <div class="mt-3 p-3 bg-purple-50 rounded-lg border border-purple-200">
+            <p class="text-purple-800 font-semibold text-sm">💡 Qiziqarli fakt: Shunga ko'ra, gliserin kundalik yoqiladi va zararsizdir, lekin etilen glikol esa zaharli va faqat texnik maqsadlarda ishlatiladi!</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Slide 4: Darslik bilan ishlash -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="4">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-5xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">📖</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Darslik bilan ishlash</h2>
+       <p class="text-gray-600">Darslikning 119-bet | Etilenglikolning 4 ta xossasi</p>
+      </div>
+      <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 mb-8 border-l-4 border-amber-500">
+       <p class="text-gray-700 text-lg">📝 "Darslikdan foydalanib, etilen glikol va gliserinning xossalari bilan tanishamiz. Shuningdek, sizga berilgan tarqatmalar yordamida reaksiyalarni davom ettirib, ularni o'zingiz moslashtirasiz."</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+       <div class="card-hover bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border-t-4 border-blue-500">
+        <div class="flex items-center gap-3 mb-4"><span class="text-3xl">1️⃣</span>
+         <h3 class="font-bold text-blue-800 text-lg">Organik kislotalar bilan</h3>
+        </div>
+        <p class="text-gray-600">Etilen glikol organik kislotalar bilan esterifikatsiya reaksiyasiga kirishadi. Gidroksi guruhlar kislota bilan vodorod bog' o'rniga ester bog'i hosil qiladi.</p>
+        <div class="mt-3 p-4 bg-blue-50 rounded-lg font-mono text-blue-800 border-2 border-blue-300">
+         <p class="text-base font-bold text-blue-900">C₂H  (OH)₂ + 2CH₃COOH → CH₃COOC₂H₄OOCCH₃ + 2H₂O</p>
+        </div>
+        <p class="text-sm text-gray-600 mt-2"><strong>(Etilen glikol + Sirka kislota → Etilen glikol diatsitat)</strong></p>
+       </div>
+       <div class="card-hover bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border-t-4 border-green-500">
+        <div class="flex items-center gap-3 mb-4"><span class="text-3xl">2️⃣</span>
+         <h3 class="font-bold text-green-800 text-lg">Metallar bilan reaksiya</h3>
+        </div>
+        <p class="text-gray-600">Faol metallar (Na, K) bilan reaksiyaga kirishib, glikolyatlar hosil qiladi va vodorod ajraladi.</p>
+        <div class="mt-3 p-4 bg-green-50 rounded-lg font-mono text-green-800 border-2 border-green-300">
+         <p class="text-base font-bold text-green-900">2C₂H₄(OH)₂ + 2Na → 2C₂H₄(ONa)₂ + H₂↑</p>
+        </div>
+       </div>
+       <div class="card-hover bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border-t-4 border-purple-500">
+        <div class="flex items-center gap-3 mb-4"><span class="text-3xl">3️⃣</span>
+         <h3 class="font-bold text-purple-800 text-lg">Mis (II) gidroksid bilan</h3>
+        </div>
+        <p class="text-gray-600">Ko'p atomli spirtlarning sifat reaksiyasi - ko'k rangli kompleks birikma hosil bo'ladi.</p>
+        <div class="mt-3 p-4 bg-purple-50 rounded-lg font-mono text-purple-800 border-2 border-purple-300">
+         <p class="text-base font-bold text-purple-900">Cu(OH)₂ + C₂H₄(OH)    → ko'k eritma</p>
+        </div>
+       </div>
+       <div class="card-hover bg-white rounded-2xl p-6 shadow-lg transition-all duration-300 border-t-4 border-orange-500">
+        <div class="flex items-center gap-3 mb-4"><span class="text-3xl">4️⃣</span>
+         <h3 class="font-bold text-orange-800 text-lg">Dehidratlanish</h3>
+        </div>
+        <p class="text-gray-600">Etilen glikol harorat ta'sirida suv yo'qotib, etilenoksid hosil qiladi. Bu reaksiya katalizator ishtirokida sodir bo'ladi.</p>
+        <div class="mt-3 p-4 bg-orange-50 rounded-lg font-mono text-orange-800 border-2 border-orange-300">
+         <p class="text-base font-bold text-orange-900">C₂H₄(OH)₂ → C₂H₄O + H₂O (t°, katalizator)</p>
+        </div>
+        <p class="text-sm text-gray-600 mt-2"><strong>(Etilen glikol → Etilenoksid + Suv)</strong></p>
+       </div>
+      </div>
+     </div>
+    </div><!-- Slide 5: Tarqatmalardagi topshiriqlar -->
+    <div class="slide flex-col items-center justify-start min-h-full" data-slide="5">
+     <div class="glass rounded-3xl p-6 md:p-8 max-w-5xl w-full shadow-2xl overflow-y-auto">
+      <div class="text-center mb-6"><span class="text-5xl mb-3 block">📋</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Tarqatmalardagi topshiriqlar</h2>
+       <p class="text-gray-600 text-sm">Quyidagi reaksiyalarda bo'sh joyga modda nomini yozing</p>
+      </div>
+      <div class="space-y-4 mb-6"><!-- Task 1 -->
+       <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-5 border-l-4 border-blue-500">
+        <div class="flex items-start gap-3 mb-3"><span class="px-3 py-1 bg-blue-500 text-white rounded-full text-xs font-bold">1-TOPSHIRIQ</span>
+        </div>
+        <div class="bg-white rounded-lg p-4 font-mono text-sm mb-3">
+         <p class="text-gray-800 mb-2 font-bold text-base"><span class="text-blue-600 font-bold">?</span> + 2CH₃COOH → CH₃COOC₂H₄OOCCH₃ + 2H₂O</p>
+        </div><button onclick="toggleTaskSolution('task1')" class="w-full bg-blue-500 text-white py-2 rounded-lg font-bold text-xs hover:bg-blue-600 transition-all"> 🔓 Yechimni ko'rish </button>
+        <div id="task1Solution" style="display: none;" class="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+         <p class="text-green-800 font-bold text-sm mb-2">    Yechim:</p>
+         <p class="text-gray-700 font-mono text-xs"><span class="text-green-600 font-bold">C₂H₄(OH)₂</span> + 2CH₃COOH → CH₃COOC₂H₄OOCCH₃ + 2H₂O</p>
+         <p class="text-gray-600 text-xs mt-2"><strong>Bo'sh joyga:</strong> <span class="bg-yellow-100 px-2 py-1 rounded">Etilen glikol (C₂H₄(OH)₂)</span></p>
+        </div>
+       </div><!-- Task 2 -->
+       <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-5 border-l-4 border-green-500">
+        <div class="flex items-start gap-3 mb-3"><span class="px-3 py-1 bg-green-500 text-white rounded-full text-xs font-bold">2-TOPSHIRIQ</span>
+        </div>
+        <div class="bg-white rounded-lg p-4 font-mono text-sm mb-3">
+         <p class="text-gray-800 mb-2 font-bold text-base">2C₂H₄(OH)₂ + 2<span class="text-green-600 font-bold">?</span> → 2C₂H₄(ONa)₂ + H₂↑</p>
+        </div><button onclick="toggleTaskSolution('task2')" class="w-full bg-green-500 text-white py-2 rounded-lg font-bold text-xs hover:bg-green-600 transition-all"> 🔓 Yechimni ko'rish </button>
+        <div id="task2Solution" style="display: none;" class="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+         <p class="text-green-800 font-bold text-sm mb-2">✅ Yechim:</p>
+         <p class="text-gray-700 font-mono text-xs">2C₂H₄(OH)₂ + 2<span class="text-green-600 font-bold">Na</span>    2C₂H₄(ONa)₂ + H₂↑</p>
+         <p class="text-gray-600 text-xs mt-2"><strong>Bo'sh joyga:</strong> <span class="bg-yellow-100 px-2 py-1 rounded">Natriy (Na) - metall</span></p>
+        </div>
+       </div><!-- Task 3 -->
+       <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-5 border-l-4 border-purple-500">
+        <div class="flex items-start gap-3 mb-3"><span class="px-3 py-1 bg-purple-500 text-white rounded-full text-xs font-bold">3-TOPSHIRIQ</span>
+        </div>
+        <div class="bg-white rounded-lg p-4 font-mono text-sm mb-3">
+         <p class="text-gray-800 mb-2 font-bold text-base">Cu(OH)₂ + C₂H₄(OH)₂ ⟶ <span class="text-purple-600 font-bold">?</span></p>
+        </div><button onclick="toggleTaskSolution('task3')" class="w-full bg-purple-500 text-white py-2 rounded-lg font-bold text-xs hover:bg-purple-600 transition-all"> 🔓 Yechimni ko'rish </button>
+        <div id="task3Solution" style="display: none;" class="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+         <p class="text-green-800 font-bold text-sm mb-2">✅ Yechim:</p>
+         <p class="text-gray-700 font-mono text-xs">Cu(OH)₂ + C₂H₄(OH)₂ → <span class="text-purple-600 font-bold">ko'k eritma (kompleks birikma)</span></p>
+         <p class="text-gray-600 text-xs mt-2"><strong>Natija:</strong> <span class="bg-yellow-100 px-2 py-1 rounded">Ko'k rangli kompleks hosil bo'ladi - bu ko'p atomli spirtlarning sifat reaksiyasi</span></p>
+        </div>
+       </div><!-- Task 4 -->
+       <div class="bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-5 border-l-4 border-orange-500">
+        <div class="flex items-start gap-3 mb-3"><span class="px-3 py-1 bg-orange-500 text-white rounded-full text-xs font-bold">4-TOPSHIRIQ</span>
+        </div>
+        <div class="bg-white rounded-lg p-4 font-mono text-sm mb-3">
+         <p class="text-gray-800 mb-2">C₂H₄(OH)₂ → <span class="text-orange-600 font-bold">?</span> + H₂O (t°, katalizator)</p>
+        </div><button onclick="toggleTaskSolution('task4')" class="w-full bg-orange-500 text-white py-2 rounded-lg font-bold text-xs hover:bg-orange-600 transition-all"> 🔓 Yechimni ko'rish </button>
+        <div id="task4Solution" style="display: none;" class="mt-3 p-3 bg-green-50 rounded-lg border border-green-200">
+         <p class="text-green-800 font-bold text-sm mb-2">✅ Yechim:</p>
+         <p class="text-gray-700 font-mono text-xs">C₂H₄(OH)₂ → <span class="text-orange-600 font-bold">C₂H₄O (etilenoksid)</span> + H₂O (t°, katalizator)</p>
+         <p class="text-gray-600 text-xs mt-2"><strong>Reaksiya nomi:</strong> <span class="bg-yellow-100 px-2 py-1 rounded">Dehidratlanish - suvni yo'qotish</span></p>
+        </div>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl border border-yellow-300">
+       <p class="text-yellow-800 font-semibold text-sm flex items-center gap-2"><span class="text-2xl">💡</span> <span><strong>Maslahat:</strong> Har bir reaksiyani diqqat bilan o'qiylik va bo'sh joyda qaysi modda yoki mahsulot bo'lishi kerakligini tushunishga harakat qilaylik!</span></p>
+      </div>
+     </div>
+    </div><!-- Slide 6: Muammoli vaziyat -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="6">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">🤔</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">Muammoli vaziyat</h2>
+      </div>
+      <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-6 mb-6 border-l-4 border-red-500">
+       <p class="text-xl text-gray-800 font-semibold">❓ Nega kundalik hayotda biz gliserinni tanlaymiz, etilen glikolni esa ishlatmaymiz, agar ularning xossalari o'xshash bo'lsa?</p>
+      </div>
+      <div id="solution4" class="hidden">
+       <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-200">
+        <h3 class="font-bold text-green-800 text-xl mb-4 flex items-center gap-2"><span>✅</span> Yechim</h3>
+        <div class="space-y-4">
+         <div class="flex items-start gap-4 p-4 bg-red-50 rounded-xl"><span class="text-3xl">☠️</span>
+          <div>
+           <h4 class="font-bold text-red-800">Etilen glikol - ZAHARLI!</h4>
+           <p class="text-gray-700">Etilen glikol juda zaharli modda. Agar ichib yuborilsa, buyrak va jigar ishdan chiqadi. Faqat 100 ml etilen glikol odam hayotiga xavf tug'diradi.</p>
+          </div>
+         </div>
+         <div class="flex items-start gap-4 p-4 bg-green-50 rounded-xl"><span class="text-3xl">✅</span>
+          <div>
+           <h4 class="font-bold text-green-800">Gliserin - XAVFSIZ!</h4>
+           <p class="text-gray-700">Gliserin oziq-ovqat, kosmetika va dori-darmonlarda ishlatiladi. U organizm uchun zararsiz va hatto foydali.</p>
+          </div>
+         </div>
+         <div class="grid md:grid-cols-2 gap-4 mt-4">
+          <div class="p-4 bg-blue-50 rounded-xl">
+           <h4 class="font-bold text-blue-800 mb-2">🛒 Gliserin qo'llanilishi:</h4>
+           <ul class="text-gray-700 text-sm space-y-1">
+            <li>• Qo'l kremlari va namlantirgichlar</li>
+            <li>• Shirinliklar va tortlar</li>
+            <li>• Tibbiyot (siroplar, tabletlar)</li>
+            <li>• Sovun va shampunlar</li>
+           </ul>
+          </div>
+          <div class="p-4 bg-gray-50 rounded-xl">
+           <h4 class="font-bold text-gray-800 mb-2">⚙️ Etilen glikol qo'llanilishi:</h4>
+           <ul class="text-gray-700 text-sm space-y-1">
+            <li>• Avtomobil antifrizlari</li>
+            <li>• Sanoat sovutgichlar</li>
+            <li>• Plastmassa ishlab chiqarish</li>
+            <li>• Faqat texnik maqsadlarda!</li>
+           </ul>
+          </div>
+         </div>
+         <div class="mt-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
+          <p class="text-yellow-800 font-semibold">⚠️ Esda tuting: Bir xil xossali moddalar har doim ham bir xil xavfsiz emas! Kimyoviy tarkib va ta'siri farq qiladi!</p>
+         </div>
+        </div>
+       </div>
+      </div><button onclick="toggleSolution(4)" class="mt-6 w-full btn-glow bg-gradient-to-r from-red-500 to-pink-600 text-white py-4 rounded-xl font-bold text-lg transition-all duration-300 hover:from-red-600 hover:to-pink-700"> <span id="solutionBtn4">🔓 Yechimni ko'rish</span> </button>
+     </div>
+    </div><!-- Slide 7: Amaliy mashg'ulot -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="7">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">🔬</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Amaliy mashg'ulot</h2>
+       <p class="text-gray-600 text-lg">Rezina yoki qog'ozni yumshatish tajribasi</p>
+      </div>
+      <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-2xl p-6 mb-6 border-l-4 border-cyan-500">
+       <h3 class="font-bold text-cyan-800 text-lg mb-2">🎯 Maqsad:</h3>
+       <p class="text-gray-700">Etilen glikol va gliserinning yumshatuvchi xossasini ko'rsatish</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6 mb-6">
+       <div class="bg-white rounded-2xl p-5 shadow-lg">
+        <h3 class="font-bold text-purple-800 mb-3 flex items-center gap-2"><span class="text-2xl">🧰</span> Materiallar</h3>
+        <ul class="space-y-2 text-gray-700">
+         <li class="flex items-center gap-2"><span>📄</span> Rezina yoki qalin qog'oz parchasi</li>
+         <li class="flex items-center gap-2"><span>💧</span> Gliserin (xavfsiz)</li>
+         <li class="flex items-center gap-2"><span>⚗️</span> Etilen glikol (faqat o'qituvchi nazoratida)</li>
+        </ul>
+       </div>
+       <div class="bg-white rounded-2xl p-5 shadow-lg">
+        <h3 class="font-bold text-green-800 mb-3 flex items-center gap-2"><span class="text-2xl">📊</span> Natija</h3>
+        <p class="text-gray-700 mb-2">Gliserin bilan ishlangan qism <strong class="text-green-600">yumshoq va elastik</strong> bo'ladi.</p>
+        <p class="text-gray-700">Oddiy qism <strong class="text-gray-600">qattiq yoki quruq</strong> bo'lib qoladi.</p>
+       </div>
+      </div>
+      <div class="bg-white rounded-2xl p-6 shadow-lg">
+       <h3 class="font-bold text-blue-800 mb-4 flex items-center gap-2"><span class="text-2xl">📋</span> Tajriba bosqichlari</h3>
+       <div class="space-y-4">
+        <div class="flex items-center gap-4 p-3 bg-blue-50 rounded-xl"><span class="w-10 h-10 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold text-lg">1</span>
+         <p class="text-gray-700">Rezina yoki qog'oz parchasini <strong>ikki teng qismga</strong> bo'ling</p>
+        </div>
+        <div class="flex items-center gap-4 p-3 bg-green-50 rounded-xl"><span class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-lg">2</span>
+         <p class="text-gray-700">Bir qismini <strong>gliserin bilan surtib</strong> chiqing, ikkinchisini qoldiring</p>
+        </div>
+        <div class="flex items-center gap-4 p-3 bg-yellow-50 rounded-xl"><span class="w-10 h-10 bg-yellow-500 text-white rounded-full flex items-center justify-center font-bold text-lg">3</span>
+         <p class="text-gray-700"><strong>5-10 daqiqa kuting</strong></p>
+        </div>
+        <div class="flex items-center gap-4 p-3 bg-purple-50 rounded-xl"><span class="w-10 h-10 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold text-lg">4</span>
+         <p class="text-gray-700">Har ikki qismni <strong>egib, solishtiring</strong></p>
+        </div>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-gradient-to-r from-amber-50 to-yellow-50 rounded-2xl border border-amber-200">
+       <p class="text-amber-800 font-semibold flex items-center gap-2"><span class="text-2xl">💡</span> <span>Hayotiy izoh: Shu xossadan muzlatgichdagi rezina zichlagichlar va kosmetika mahsulotlarini (lab bo'yog'i, kremlar) yumshatishda foydalaniladi!</span></p>
+      </div>
+     </div>
+    </div><!-- Slide 8: Viktorina -->
+    <div class="slide flex-col items-center justify-start min-h-full" data-slide="8">
+     <div class="glass rounded-3xl p-6 md:p-8 max-w-7xl w-full shadow-2xl overflow-y-auto">
+      <div class="text-center mb-6"><span class="text-4xl mb-2 block">🏆</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Qiziqarli viktorina</h2>
+       <p class="text-gray-600">3 guruh • Har birida 12 ta savol • 5 minut</p>
+      </div><!-- Quiz Start Button -->
+      <div id="quizStartContainer" class="text-center mb-8">
+       <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-8 border-2 border-yellow-300 mb-6">
+        <p class="text-gray-700 text-lg font-semibold mb-4">⏱️ Viktorina 5 minut davomida o'tkazilib, har bir savol uchun 25 soniya vaqt beriladi</p><button onclick="startQuiz()" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all shadow-lg"> 🚀 VIKTONINANI BOSHLASH </button>
+       </div>
+      </div><!-- Timer and Results Container (Hidden Initially) -->
+      <div id="quizActiveContainer" style="display: none;" class="mb-8"><!-- Global Timer -->
+       <div class="text-center mb-6 p-4 bg-gradient-to-r from-red-100 to-orange-100 rounded-2xl border-2 border-red-500">
+        <p class="text-gray-700 font-semibold mb-2">🕐 Umumiy vaqt qoldi:</p>
+        <p class="text-5xl font-bold text-red-600" id="globalTimer">5:00</p>
+       </div>
+      </div><!-- 3 Column Layout for Groups -->
+      <div id="allVariantsView" class="grid grid-cols-1 lg:grid-cols-3 gap-4"><!-- Group 1 -->
+       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-5 border-t-4 border-blue-500 shadow-lg variant-card flex flex-col h-fit">
+        <div class="text-center mb-4 pb-4 border-b-2 border-blue-200"><span class="text-3xl block mb-2">👥</span>
+         <h3 class="font-bold text-blue-800 text-lg mb-1">1-GURUH</h3>
+         <p class="text-blue-600 text-xs">Asosiy tushunchalar</p>
+        </div><!-- Timer for Group 1 -->
+        <div class="text-center mb-3 p-2 bg-blue-100 rounded-lg">
+         <p class="text-blue-800 font-bold text-lg" id="timer1">0:25</p>
+        </div>
+        <div id="variant1Quiz" class="flex-1 mb-4">
+         <div class="bg-white rounded-lg p-3 shadow-sm">
+          <p class="text-xs font-semibold text-gray-600 mb-1">Savol <span class="variant1-question">1</span>/12</p>
+          <p class="font-bold text-gray-800 text-xs mb-3" id="q1"></p>
+          <div class="space-y-1" id="opts1"></div>
+         </div>
+        </div><button onclick="nextVariantQuestion(1)" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-2 rounded-lg font-bold text-sm hover:from-blue-600 hover:to-blue-700 transition-all"> Keyingi ➡️ </button>
+       </div><!-- Group 2 -->
+       <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-5 border-t-4 border-green-500 shadow-lg variant-card flex flex-col h-fit">
+        <div class="text-center mb-4 pb-4 border-b-2 border-green-200"><span class="text-3xl block mb-2">👥</span>
+         <h3 class="font-bold text-green-800 text-lg mb-1">2-GURUH</h3>
+         <p class="text-green-600 text-xs">Amaliy savollar</p>
+        </div><!-- Timer for Group 2 -->
+        <div class="text-center mb-3 p-2 bg-green-100 rounded-lg">
+         <p class="text-green-800 font-bold text-lg" id="timer2">0:25</p>
+        </div>
+        <div id="variant2Quiz" class="flex-1 mb-4">
+         <div class="bg-white rounded-lg p-3 shadow-sm">
+          <p class="text-xs font-semibold text-gray-600 mb-1">Savol <span class="variant2-question">1</span>/12</p>
+          <p class="font-bold text-gray-800 text-xs mb-3" id="q2"></p>
+          <div class="space-y-1" id="opts2"></div>
+         </div>
+        </div><button onclick="nextVariantQuestion(2)" class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-2 rounded-lg font-bold text-sm hover:from-green-600 hover:to-green-700 transition-all"> Keyingi ➡️ </button>
+       </div><!-- Group 3 -->
+       <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-5 border-t-4 border-purple-500 shadow-lg variant-card flex flex-col h-fit">
+        <div class="text-center mb-4 pb-4 border-b-2 border-purple-200"><span class="text-3xl block mb-2">👥</span>
+         <h3 class="font-bold text-purple-800 text-lg mb-1">3-GURUH</h3>
+         <p class="text-purple-600 text-xs">Murakkab savollar</p>
+        </div><!-- Timer for Group 3 -->
+        <div class="text-center mb-3 p-2 bg-purple-100 rounded-lg">
+         <p class="text-purple-800 font-bold text-lg" id="timer3">0:25</p>
+        </div>
+        <div id="variant3Quiz" class="flex-1 mb-4">
+         <div class="bg-white rounded-lg p-3 shadow-sm">
+          <p class="text-xs font-semibold text-gray-600 mb-1">Savol <span class="variant3-question">1</span>/12</p>
+          <p class="font-bold text-gray-800 text-xs mb-3" id="q3"></p>
+          <div class="space-y-1" id="opts3"></div>
+         </div>
+        </div><button onclick="nextVariantQuestion(3)" class="w-full bg-gradient-to-r from-purple-500 to-purple-600 text-white py-2 rounded-lg font-bold text-sm hover:from-purple-600 hover:to-purple-700 transition-all"> Keyingi ➡️ </button>
+       </div>
+      </div>
+     </div>
+    </div><!-- Slide 9: Natijalar -->
+    <div class="slide flex-col items-center justify-start min-h-full" data-slide="9">
+     <div class="glass rounded-3xl p-6 md:p-8 max-w-7xl w-full shadow-2xl overflow-y-auto">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">📊</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">Natijalar va Baholash</h2>
+       <p class="text-gray-600">Viktorina tugallandi ✅</p>
+      </div><!-- Scoring Scale -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-3 mb-8">
+       <div class="bg-gradient-to-br from-green-100 to-green-200 rounded-xl p-4 text-center border-2 border-green-500">
+        <p class="text-3xl font-bold text-green-700">100-80%</p>
+        <p class="font-bold text-green-800 mt-1">⭐ A'LO</p>
+       </div>
+       <div class="bg-gradient-to-br from-blue-100 to-blue-200 rounded-xl p-4 text-center border-2 border-blue-500">
+        <p class="text-3xl font-bold text-blue-700">80-66%</p>
+        <p class="font-bold text-blue-800 mt-1">✅ YAXSHI</p>
+       </div>
+       <div class="bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-xl p-4 text-center border-2 border-yellow-500">
+        <p class="text-3xl font-bold text-yellow-700">66-46%</p>
+        <p class="font-bold text-yellow-800 mt-1">👍 QONIQARLI</p>
+       </div>
+       <div class="bg-gradient-to-br from-red-100 to-red-200 rounded-xl p-4 text-center border-2 border-red-500">
+        <p class="text-3xl font-bold text-red-700">&lt;46%</p>
+        <p class="font-bold text-red-800 mt-1">⚠️ YETARLI EMAS</p>
+       </div>
+      </div><!-- Groups Results -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-8"><!-- Group 1 Results -->
+       <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border-t-4 border-blue-500 shadow-lg">
+        <h3 class="font-bold text-blue-800 text-lg mb-4 text-center">👥 1-GURUH</h3>
+        <div class="bg-white rounded-lg p-4 mb-3">
+         <p class="text-gray-600 text-sm mb-1">To'g'ri javoblar:</p>
+         <p class="text-4xl font-bold text-blue-600 mb-1" id="group1Correct">0/12</p>
+         <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+          <div id="group1Progress" class="bg-blue-600 h-3 rounded-full" style="width: 0%"></div>
+         </div>
+         <p class="text-blue-800 font-bold text-xl text-center mb-2" id="group1Percentage">0%</p>
+         <p class="text-blue-700 font-bold text-center text-lg" id="group1Rating">-</p>
+        </div>
+       </div><!-- Group 2 Results -->
+       <div class="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border-t-4 border-green-500 shadow-lg">
+        <h3 class="font-bold text-green-800 text-lg mb-4 text-center">👥 2-GURUH</h3>
+        <div class="bg-white rounded-lg p-4 mb-3">
+         <p class="text-gray-600 text-sm mb-1">To'g'ri javoblar:</p>
+         <p class="text-4xl font-bold text-green-600 mb-1" id="group2Correct">0/12</p>
+         <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+          <div id="group2Progress" class="bg-green-600 h-3 rounded-full" style="width: 0%"></div>
+         </div>
+         <p class="text-green-800 font-bold text-xl text-center mb-2" id="group2Percentage">0%</p>
+         <p class="text-green-700 font-bold text-center text-lg" id="group2Rating">-</p>
+        </div>
+       </div><!-- Group 3 Results -->
+       <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border-t-4 border-purple-500 shadow-lg">
+        <h3 class="font-bold text-purple-800 text-lg mb-4 text-center">👥 3-GURUH</h3>
+        <div class="bg-white rounded-lg p-4 mb-3">
+         <p class="text-gray-600 text-sm mb-1">To'g'ri javoblar:</p>
+         <p class="text-4xl font-bold text-purple-600 mb-1" id="group3Correct">0/12</p>
+         <div class="w-full bg-gray-200 rounded-full h-3 mb-2">
+          <div id="group3Progress" class="bg-purple-600 h-3 rounded-full" style="width: 0%"></div>
+         </div>
+         <p class="text-purple-800 font-bold text-xl text-center mb-2" id="group3Percentage">0%</p>
+         <p class="text-purple-700 font-bold text-center text-lg" id="group3Rating">-</p>
+        </div>
+       </div>
+      </div><!-- Class Total Result -->
+      <div class="bg-gradient-to-r from-purple-100 via-pink-100 to-red-100 rounded-2xl p-8 text-center border-2 border-purple-500 shadow-lg">
+       <h3 class="font-bold text-purple-800 text-xl mb-3">📚 UMUMIY SINF NATIJASI</h3>
+       <div class="grid grid-cols-3 gap-4 mb-4">
+        <div>
+         <p class="text-gray-600 text-sm">Jami to'g'ri javoblar:</p>
+         <p class="text-4xl font-bold text-purple-600" id="totalCorrect">0</p>
+        </div>
+        <div>
+         <p class="text-gray-600 text-sm">Jami savollar:</p>
+         <p class="text-4xl font-bold text-purple-600">36</p>
+        </div>
+        <div>
+         <p class="text-gray-600 text-sm">O'rtacha %:</p>
+         <p class="text-4xl font-bold text-purple-600" id="classPercentage">0%</p>
+        </div>
+       </div>
+       <div class="w-full bg-gray-300 rounded-full h-4 mb-4">
+        <div id="classProgress" class="bg-gradient-to-r from-purple-600 to-pink-600 h-4 rounded-full" style="width: 0%"></div>
+       </div>
+       <p class="text-2xl font-bold text-center" id="classRating" style="color: #667eea;">-</p>
+      </div><button onclick="goToSlide(10)" class="mt-6 w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all"> Davom etish ➡️ </button>
+     </div>
+    </div><!-- Slide 10: Uyga vazifa -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="10">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">📝</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">Uyga vazifa</h2>
+       <p class="text-gray-600">Loyiha ishlari - qiyinlik darajasini tanlang</p>
+      </div>
+      <div class="space-y-4">
+       <div class="card-hover bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border-l-4 border-green-500 transition-all duration-300 cursor-default">
+        <div class="flex items-center gap-3 mb-3"><span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm font-bold">ODDIY</span> <span class="text-2xl">⭐</span>
+        </div>
+        <h3 class="font-bold text-green-800 text-lg mb-2">Jadval tuzish</h3>
+        <p class="text-gray-700">Etilen glikol va gliserinning fizik va kimyoviy xossalarini solishtiruvchi jadval tuzing. Kamis 5 ta xossani ko'rsating.</p>
+       </div>
+       <div class="card-hover bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-6 border-l-4 border-yellow-500 transition-all duration-300 cursor-default">
+        <div class="flex items-center gap-3 mb-3"><span class="px-3 py-1 bg-yellow-500 text-white rounded-full text-sm font-bold">O'RTACHA</span> <span class="text-2xl">⭐⭐</span>
+        </div>
+        <h3 class="font-bold text-yellow-800 text-lg mb-2">Mini-tadqiqot</h3>
+        <p class="text-gray-700">Uyingizda gliserin ishlatilgan 5 ta mahsulotni toping (kremlar, sovunlar, oziq-ovqatlar). Har bir mahsulotda gliserinning vazifasini yozing va rasmlarini ilovang.</p>
+       </div>
+       <div class="card-hover bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-6 border-l-4 border-red-500 transition-all duration-300 cursor-default">
+        <div class="flex items-center gap-3 mb-3"><span class="px-3 py-1 bg-red-500 text-white rounded-full text-sm font-bold">MURAKKAB</span> <span class="text-2xl">⭐⭐   </span>
+        </div>
+        <h3 class="font-bold text-red-800 text-lg mb-2">Ilmiy loyiha</h3>
+        <p class="text-gray-700">"Kelajakda etilen glikolga ekologik toza muqobil" mavzusida 1 sahifalik esse yozing. Zamonaviy antifrizes muqobillarini o'rganing va taklif qiling.</p>
+       </div>
+      </div>
+      <div class="mt-6 p-4 bg-purple-50 rounded-xl text-center">
+       <p class="text-purple-800 font-semibold">💡 Maslahat: O'z qobiliyatingizga mos darajani tanlang. Murakkab vazifalar uchun qo'shimcha ball beriladi!</p>
+      </div>
+     </div>
+    </div><!-- Slide 11: Dars xulosasi -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="11">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-6xl mb-4 block molecule">  </span>
+       <h2 class="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4">Dars xulosasi</h2>
+      </div>
+      <div class="space-y-4 mb-8">
+       <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl"><span class="text-3xl">🧪</span>
+        <div>
+         <h4 class="font-bold text-blue-800">Kimyoviy xossalar</h4>
+         <p class="text-gray-700">Etilen glikol va gliserin — ko'p atomli spirtlar bo'lib, ular o'xshash kimyoviy xossalarga ega: suvda eriydi, metallar bilan reaksiyaga kirishadi, Cu(OH)₂ bilan ko'k kompleks hosil qiladi.</p>
+        </div>
+       </div>
+       <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl"><span class="text-3xl">⚠️</span>
+        <div>
+         <h4 class="font-bold text-green-800">Muhim farq</h4>
+         <p class="text-gray-700">Gliserin — xavfsiz va kundalik hayotda keng qo'llaniladi (kosmetika, oziq-ovqat). Etilen glikol — zaharli va faqat texnik maqsadlarda ishlatiladi (antifriz).</p>
+        </div>
+       </div>
+       <div class="flex items-start gap-4 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl"><span class="text-3xl">🔧</span>
+        <div>
+         <h4 class="font-bold text-purple-800">Amaliy qo'llanilish</h4>
+         <p class="text-gray-700">Gliserinning yumshatuvchi xossasi — kremlar, rezina zichlagichlar va tibbiyotda qo'llaniladi. Etilen glikol esa avtomobil radiatorlarini muzlashdan himoya qiladi.</p>
+        </div>
+       </div>
+      </div>
+      <div class="bg-gradient-to-r from-amber-100 to-yellow-100 rounded-2xl p-6 text-center mb-6">
+       <p class="text-xl font-bold text-amber-800 mb-2">    Bugungi darsdan olingan asosiy saboq:</p>
+       <p class="text-lg text-amber-700 italic">"Kimyoviy moddalarni bilish    bu ularni xavfsiz va samarali ishlatish demakdir!"</p>
+      </div>
+      <div class="grid grid-cols-3 gap-4 text-center">
+       <div class="p-4 bg-white rounded-xl shadow-lg"><span class="text-3xl block mb-2">📚</span>
+        <p class="font-bold text-gray-800">Nazariya</p>
+        <p class="text-green-600 font-bold">   O'zlashtirildi</p>
+       </div>
+       <div class="p-4 bg-white rounded-xl shadow-lg"><span class="text-3xl block mb-2">   </span>
+        <p class="font-bold text-gray-800">Amaliyot</p>
+        <p class="text-green-600 font-bold">✓ Bajarildi</p>
+       </div>
+       <div class="p-4 bg-white rounded-xl shadow-lg"><span class="text-3xl block mb-2">🎯</span>
+        <p class="font-bold text-gray-800">Maqsad</p>
+        <p class="text-green-600 font-bold">✓ Erishildi</p>
+       </div>
+      </div>
+      <div class="mt-8 text-center">
+       <p class="text-2xl font-bold text-purple-800 mb-2">E'tiboringiz uchun rahmat! 🙏</p>
+       <p class="text-gray-600">Savol va takliflaringiz bo'lsa, marhamat!</p>
+      </div>
+     </div>
+    </div><!-- Slide 12: O'z-o'zini baholash anketi -->
+    <div class="slide flex-col items-center justify-start min-h-full" data-slide="12">
+     <div class="glass rounded-3xl p-6 md:p-8 max-w-5xl w-full shadow-2xl overflow-y-auto">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">📋</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-2">O'z-o'zini baholash anketi</h2>
+       <p class="text-gray-600">Bugungi dars haqida o'z fikringizni bildirib, javob bering</p>
+      </div>
+      <form id="selfAssessmentForm" class="space-y-6"><!-- Question 1 -->
+       <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-blue-500">
+        <h3 class="font-bold text-blue-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">1️⃣</span> Bugungi mavzuni qanchalik tushundingiz?</h3>
+        <div class="space-y-3"><label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-blue-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-blue-300"> <input type="radio" name="understanding" value="very_well" class="w-5 h-5 text-blue-600"> <span class="text-gray-700 font-medium">⬜ Juda yaxshi tushundim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-blue-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-blue-300"> <input type="radio" name="understanding" value="well" class="w-5 h-5 text-blue-600"> <span class="text-gray-700 font-medium">⬜ Yaxshi tushundim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-blue-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-blue-300"> <input type="radio" name="understanding" value="difficult" class="w-5 h-5 text-blue-600"> <span class="text-gray-700 font-medium">⬜ Biroz qiynaldim</span> </label>
+        </div>
+       </div><!-- Question 2 -->
+       <div class="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border-l-4 border-green-500">
+        <h3 class="font-bold text-green-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">2️⃣</span> Savol va masalalarni bajara oldingizmi?</h3>
+        <div class="space-y-3"><label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-green-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-green-300"> <input type="radio" name="problems" value="all_well" class="w-5 h-5 text-green-600"> <span class="text-gray-700 font-medium">⬜ Hammasini yaxshi bajardim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-green-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-green-300"> <input type="radio" name="problems" value="most" class="w-5 h-5 text-green-600"> <span class="text-gray-700 font-medium">⬜ Ko'pini bajardim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-green-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-green-300"> <input type="radio" name="problems" value="some_difficult" class="w-5 h-5 text-green-600"> <span class="text-gray-700 font-medium">⬜ Ba'zilarida qiynaldim</span> </label>
+        </div>
+       </div><!-- Question 3 -->
+       <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border-l-4 border-purple-500">
+        <h3 class="font-bold text-purple-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">3️⃣</span> Guruhda ishlash sizga qanday bo'ldi?</h3>
+        <div class="space-y-3"><label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-purple-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-purple-300"> <input type="radio" name="teamwork" value="very_well" class="w-5 h-5 text-purple-600"> <span class="text-gray-700 font-medium">⬜ Juda yaxshi ishladim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-purple-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-purple-300"> <input type="radio" name="teamwork" value="well" class="w-5 h-5 text-purple-600"> <span class="text-gray-700 font-medium">⬜ Yaxshi ishladim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-purple-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-purple-300"> <input type="radio" name="teamwork" value="passive" class="w-5 h-5 text-purple-600"> <span class="text-gray-700 font-medium">⬜ Unchalik faol bo'lolmadim</span> </label>
+        </div>
+       </div><!-- Question 4 -->
+       <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-2xl p-6 border-l-4 border-yellow-500">
+        <h3 class="font-bold text-yellow-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">4️⃣</span> Bugungi dars sizga foydali bo'ldimi?</h3>
+        <div class="space-y-3"><label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-yellow-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-yellow-300"> <input type="radio" name="usefulness" value="very_useful" class="w-5 h-5 text-yellow-600"> <span class="text-gray-700 font-medium">⬜ Juda foydali bo'ldi</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-yellow-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-yellow-300"> <input type="radio" name="usefulness" value="useful" class="w-5 h-5 text-yellow-600"> <span class="text-gray-700 font-medium">⬜ Foydali ma'lumot oldim</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-yellow-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-yellow-300"> <input type="radio" name="usefulness" value="not_useful" class="w-5 h-5 text-yellow-600"> <span class="text-gray-700 font-medium">⬜ Unchalik foydali bo'lmadi</span> </label>
+        </div>
+       </div><!-- Question 5 -->
+       <div class="bg-gradient-to-r from-red-50 to-pink-50 rounded-2xl p-6 border-l-4 border-red-500">
+        <h3 class="font-bold text-red-800 text-lg mb-4 flex items-center gap-2"><span class="text-2xl">5️⃣</span> Bugun o'rgangan mavzuni boshqalarga tushuntira olasizmi?</h3>
+        <div class="space-y-3"><label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-red-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-red-300"> <input type="radio" name="explanation" value="yes_easily" class="w-5 h-5 text-red-600"> <span class="text-gray-700 font-medium">⬜ Ha, bemalol tushuntiraman</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-red-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-red-300"> <input type="radio" name="explanation" value="partially" class="w-5 h-5 text-red-600"> <span class="text-gray-700 font-medium">⬜ Qisman tushuntira olaman</span> </label> <label class="flex items-center gap-3 p-3 bg-white rounded-xl hover:bg-red-50 cursor-pointer transition-all border-2 border-gray-200 hover:border-red-300"> <input type="radio" name="explanation" value="difficult" class="w-5 h-5 text-red-600"> <span class="text-gray-700 font-medium">⬜ Hali qiynalaman</span> </label>
+        </div>
+       </div><!-- Submit Button -->
+       <div class="flex gap-4 mt-8"><button type="button" onclick="goToSlide(11)" class="flex-1 bg-gradient-to-r from-gray-500 to-gray-600 text-white py-3 rounded-xl font-bold text-lg hover:from-gray-600 hover:to-gray-700 transition-all"> ⬅️ Ortga qaytish </button> <button type="submit" class="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 rounded-xl font-bold text-lg hover:from-purple-700 hover:to-pink-700 transition-all"> ✅ Javoblarni yuborish </button>
+       </div><!-- Success Message -->
+       <div id="successMessage" style="display: none;" class="mt-4 p-4 bg-gradient-to-r from-green-100 to-emerald-100 rounded-xl text-center border border-green-500">
+        <p class="text-green-800 font-bold text-lg">✅ Javoblaringiz qabul qilindi!</p>
+        <p class="text-green-700 text-sm mt-1">Raximat javoblar berganingiz uchun! 🙏</p>
+       </div>
+      </form>
+     </div>
+    </div><!-- Slide 13: Qo'shimcha resurslar -->
+    <div class="slide flex-col items-center justify-center min-h-full" data-slide="13">
+     <div class="glass rounded-3xl p-8 md:p-12 max-w-4xl w-full shadow-2xl">
+      <div class="text-center mb-8"><span class="text-5xl mb-4 block">📚</span>
+       <h2 class="text-2xl md:text-3xl font-bold text-purple-800 mb-4">Qo'shimcha resurslar</h2>
+       <p class="text-gray-600">Darsi chuqurlashtirib o'rganish uchun</p>
+      </div>
+      <div class="space-y-4">
+       <div class="card-hover bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border-l-4 border-blue-500 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-3"><span class="text-3xl">🔬</span>
+         <h3 class="font-bold text-blue-800 text-lg">Tajribalar video</h3>
+        </div>
+        <p class="text-gray-700">YouTube da "Ko'p atomli spirtlar tajribalari" qidirib, video darslarni ko'ring</p>
+       </div>
+       <div class="card-hover bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-6 border-l-4 border-green-500 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-3"><span class="text-3xl">📖</span>
+         <h3 class="font-bold text-green-800 text-lg">Darslik</h3>
+        </div>
+        <p class="text-gray-700">Darslikning 115-125 betlari - "Ko'p atomli spirtlar" mavzusu</p>
+       </div>
+       <div class="card-hover bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border-l-4 border-purple-500 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-3"><span class="text-3xl">💻</span>
+         <h3 class="font-bold text-purple-800 text-lg">Online testlar</h3>
+        </div>
+        <p class="text-gray-700">Kimyo fani uchun onlayn testlash platformalarida o'z bilimingizni sinab ko'ring</p>
+       </div>
+       <div class="card-hover bg-gradient-to-r from-orange-50 to-amber-50 rounded-2xl p-6 border-l-4 border-orange-500 transition-all duration-300">
+        <div class="flex items-center gap-3 mb-3"><span class="text-3xl">🧬</span>
+         <h3 class="font-bold text-orange-800 text-lg">Molekulyar modellar</h3>
+        </div>
+        <p class="text-gray-700">ChemDoodle yoki MolView ilovasi yordamida etilen glikol va gliserin strukturasini 3D qilib ko'ring</p>
+       </div>
+      </div>
+      <div class="mt-8 p-4 bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl text-center border border-purple-300">
+       <p class="text-purple-800 font-semibold">🎓 YANA KO'P O'RGANISHGA TAYYORMISIZ?</p>
+       <p class="text-purple-700">Keyingi darslarda: "Spiritlar va fenollar", "Aldegidlar va ketonlar" mavzulariga o'tishimiz mumkin!</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Navigation Buttons -->
+   <div class="flex-shrink-0 glass px-6 py-4 flex justify-between items-center gap-4 w-full"><button onclick="prevSlide()" id="prevBtn" class="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-gray-500 to-gray-600 text-white rounded-xl font-bold hover:from-gray-600 hover:to-gray-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed whitespace-nowrap text-sm md:text-base"> ⬅️ Oldingi </button>
+    <div class="flex gap-2 flex-wrap justify-center" id="dotsContainer"></div><button onclick="nextSlide()" id="nextSlideBtn" class="flex items-center gap-2 px-4 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl font-bold hover:from-purple-600 hover:to-pink-600 transition-all whitespace-nowrap text-sm md:text-base"> Keyingi ➡️ </button>
+   </div>
+  </div>
+  <script>
+    // Quiz data
+    const quizData = {
+      1: [
+        { q: "Antifriz asosan qaysi moddadan tayyorlanadi?", options: ["Gliserin", "Etilen glikol", "Etanol", "Metanol"], correct: 1 },
+        { q: "Gliserin qayerda ishlatiladi?", options: ["Avtomobil radiatorida", "Qo'l kremlarida", "Benzinda", "Plastmassada"], correct: 1 },
+        { q: "Etilen glikol necha ta gidroksi guruhga ega?", options: ["1 ta", "2 ta", "3 ta", "4 ta"], correct: 1 },
+        { q: "Gliserin necha ta gidroksi guruhga ega?", options: ["1 ta", "2 ta", "3 ta", "4 ta"], correct: 2 },
+        { q: "Qaysi modda zaharli?", options: ["Gliserin", "Suv", "Etilen glikol", "Shakar"], correct: 2 },
+        { q: "Ko'p atomli spirtlarning sifat reaksiyasi qaysi moddada?", options: ["NaCl", "Cu(OH)₂", "H  O", "NaOH"], correct: 1 },
+        { q: "Cu(OH)₂ bilan reaksiyada qanday rang hosil bo'ladi?", options: ["Qizil", "Yashil", "Ko'k", "Sariq"], correct: 2 },
+        { q: "Gliserin qaysi mahsulotda bor?", options: ["Benzin", "Sovun", "Tuz", "Temir"], correct: 1 },
+        { q: "Etilen glikol formulasi qanday?", options: ["C₂H₅OH", "C₂H₄(OH)₂", "C₃H₈(OH)₃", "CH₃OH"], correct: 1 },
+        { q: "Qaysi modda suvda yaxshi eriydi?", options: ["Neft", "Gliserin", "Yog'", "Qum"], correct: 1 },
+        { q: "Antifriz nima vazifani bajaradi?", options: ["Yonilg'i", "Muzlashdan himoya", "Rang berish", "Hidlantirish"], correct: 1 },
+        { q: "Gliserin ta'mi qanday?", options: ["Achchiq", "Shirin", "Sho'r", "Nordon"], correct: 1 }
+      ],
+      2: [
+        { q: "Qish kunlari avtomobil radiatoriga nima qo'shiladi?", options: ["Suv", "Antifriz", "Benzin", "Yog'"], correct: 1 },
+        { q: "Krem yumshoq bo'lishi uchun nima qo'shiladi?", options: ["Tuz", "Gliserin", "Shakar", "Un"], correct: 1 },
+        { q: "Lab bo'yog'ida qaysi modda bor?", options: ["Etilen glikol", "Benzin", "Gliserin", "Kislota"], correct: 2 },
+        { q: "Muzlatgich zichlagichi nimadan yumshoq?", options: ["Suvdan", "Gliserindan", "Havoda", "Issiqdan"], correct: 1 },
+        { q: "Qaysi modda kosmetikada ishlatilmaydi?", options: ["Gliserin", "Etilen glikol", "Suv", "Yog'"], correct: 1 },
+        { q: "Sovunda gliserin nima uchun kerak?", options: ["Rang uchun", "Namlash uchun", "Hid uchun", "Qattiqlik uchun"], correct: 1 },
+        { q: "Antifriz qaysi haroratda ishlaydi?", options: ["+50°C", "-40°C", "+100°C", "0°C"], correct: 1 },
+        { q: "Bolalar kremi tarkibida nima bor?", options: ["Etilen glikol", "Benzin", "Gliserin", "Kislota"], correct: 2 },
+        { q: "Qaysi modda oziq-ovqatda ishlatiladi?", options: ["Etilen glikol", "Gliserin", "Antifriz", "Motor moyi"], correct: 1 },
+        { q: "Shirinliklarni yumshoq saqlash uchun nima qo'shiladi?", options: ["Tuz", "Gliserin", "Sirka", "Soda"], correct: 1 },
+        { q: "Tibbiyotda siroplar uchun nima ishlatiladi?", options: ["Etilen glikol", "Gliserin", "Benzin", "Spirt"], correct: 1 },
+        { q: "Avtomobil radiatori nima uchun kerak?", options: ["Chiroq yoqish", "Dvigatel sovutish", "Musiqa", "Oyna tozalash"], correct: 1 }
+      ],
+      3: [
+        { q: "Etilen glikol qancha miqdorda xavfli?", options: ["1 litr", "100 ml", "10 litr", "1 ml"], correct: 1 },
+        { q: "Gliserin qaysi reaksiyada aldegid hosil qiladi?", options: ["Erish", "Oksidlanish", "Neytrallanish", "Cho'kish"], correct: 1 },
+        { q: "Ko'p atomli spirtlar nima bilan vodorod bog' hosil qiladi?", options: ["Metall", "Suv", "Havo", "Neft"], correct: 1 },
+        { q: "Etilen glikol + Na reaksiyasida nima ajraladi?", options: ["O₂", "N₂", "H₂", "CO₂"], correct: 2 },
+        { q: "Gliserinning molekulyar massasi qancha?", options: ["62", "92", "46", "78"], correct: 1 },
+        { q: "Etilen glikolning qaynash harorati taxminan qancha?", options: ["100°C", "197°C", "78°C", "56°C"], correct: 1 },
+        { q: "Antifriezda etilen glikol necha foiz?", options: ["10-20%", "40-60%", "90-100%", "1-5%"], correct: 1 },
+        { q: "Gliserin qaysi kislotadan olinadi?", options: ["Sirka kislota", "Yog' kislota", "Limon kislota", "Tuz kislota"], correct: 1 },
+        { q: "Etilen glikol zaharlanishida qaysi organ zararlanadiadi?", options: ["Yurak", "Buyrak", "O'pka", "Teri"], correct: 1 },
+        { q: "Poliefir tolalar ishlab chiqarishda nima ishlatiladi?", options: ["Gliserin", "Etilen glikol", "Etanol", "Metanol"], correct: 1 },
+        { q: "Gliserinning zichligi suvnikidan qanday?", options: ["Kam", "Ko'p", "Teng", "O'zgaruvchan"], correct: 1 },
+        { q: "Nitroliserin qaysi moddadan olinadi?", options: ["Etanol", "Gliserin", "Metanol", "Etilen glikol"], correct: 1 }
+      ]
+    };
+
+    // Config and SDK initialization
+    const defaultConfig = {
+      lesson_title: "Etilen glikol va gliserinning xossalari",
+      video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      video_title: "Dars video",
+      primary_color: "#667eea",
+      secondary_color: "#764ba2",
+      text_color: "#1f2937",
+      accent_color: "#f59e0b",
+      background_color: "#4c1d95"
+    };
+
+    let config = { ...defaultConfig };
+
+    // Slides management
+    let currentSlide = 1;
+    const totalSlides = 13;
+
+    function initDots() {
+      const container = document.getElementById('dotsContainer');
+      for (let i = 1; i <= totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className = `w-3 h-3 rounded-full transition-all ${i === 1 ? 'bg-purple-600 scale-125' : 'bg-gray-300'}`;
+        dot.onclick = () => goToSlide(i);
+        container.appendChild(dot);
+      }
+    }
+
+    function updateDots() {
+      const dots = document.querySelectorAll('#dotsContainer button');
+      dots.forEach((dot, index) => {
+        if (index + 1 === currentSlide) {
+          dot.className = 'w-3 h-3 rounded-full transition-all bg-purple-600 scale-125';
+        } else {
+          dot.className = 'w-3 h-3 rounded-full transition-all bg-gray-300';
+        }
+      });
+    }
+
+    function goToSlide(slideNum) {
+      document.querySelectorAll('.slide').forEach(slide => slide.classList.remove('active'));
+      document.querySelector(`[data-slide="${slideNum}"]`).classList.add('active');
+      currentSlide = slideNum;
+      updateNavigation();
+      updateDots();
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    function updateNavigation() {
+      document.getElementById('slideIndicator').textContent = `${currentSlide} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = currentSlide === 1;
+      document.getElementById('nextSlideBtn').style.visibility = currentSlide === totalSlides ? 'hidden' : 'visible';
+    }
+
+    function toggleSolution(num) {
+      const solution = document.getElementById(`solution${num}`);
+      const btn = document.getElementById(`solutionBtn${num}`);
+      
+      if (solution.style.display === 'none' || solution.style.display === '') {
+        solution.style.display = 'block';
+        btn.textContent = '🔒 Yechimni yashirish';
+      } else {
+        solution.style.display = 'none';
+        btn.textContent = '🔓 Yechimni ko\'rish';
+      }
+    }
+
+    function toggleTaskSolution(taskId) {
+      const solution = document.getElementById(`${taskId}Solution`);
+      if (solution.style.display === 'none' || solution.style.display === '') {
+        solution.style.display = 'block';
+      } else {
+        solution.style.display = 'none';
+      }
+    }
+
+    // Quiz functions
+    let variantCurrentQuestion = { 1: 0, 2: 0, 3: 0 };
+    let variantAnswered = { 1: false, 2: false, 3: false };
+    let variantSelectedAnswer = { 1: null, 2: null, 3: null };
+    let variantCorrectCount = { 1: 0, 2: 0, 3: 0 };
+    let quizActive = false;
+    let globalTimer = null;
+    let questionTimers = { 1: null, 2: null, 3: null };
+    let globalTimeLeft = 300;
+    let questionTimeLeft = { 1: 25, 2: 25, 3: 25 };
+    
+    function startQuiz() {
+      quizActive = true;
+      globalTimeLeft = 300;
+      questionTimeLeft = { 1: 25, 2: 25, 3: 25 };
+      variantCorrectCount = { 1: 0, 2: 0, 3: 0 };
+      
+      document.getElementById('quizStartContainer').style.display = 'none';
+      document.getElementById('quizActiveContainer').style.display = 'block';
+      displayVariantQuestions();
+      
+      startGlobalTimer();
+      startQuestionTimer(1);
+      startQuestionTimer(2);
+      startQuestionTimer(3);
+    }
+    
+    function startGlobalTimer() {
+      globalTimer = setInterval(() => {
+        globalTimeLeft--;
+        const minutes = Math.floor(globalTimeLeft / 60);
+        const seconds = globalTimeLeft % 60;
+        document.getElementById('globalTimer').textContent = 
+          `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        
+        if (globalTimeLeft <= 0) {
+          finishQuiz();
+        }
+      }, 1000);
+    }
+    
+    function startQuestionTimer(variant) {
+      if (questionTimers[variant]) clearInterval(questionTimers[variant]);
+      
+      questionTimeLeft[variant] = 25;
+      questionTimers[variant] = setInterval(() => {
+        questionTimeLeft[variant]--;
+        const seconds = questionTimeLeft[variant];
+        document.getElementById(`timer${variant}`).textContent = `0:${seconds.toString().padStart(2, '0')}`;
+        
+        if (questionTimeLeft[variant] <= 0) {
+          nextVariantQuestion(variant);
+          startQuestionTimer(variant);
+        }
+      }, 1000);
+    }
+    
+    function finishQuiz() {
+      quizActive = false;
+      clearInterval(globalTimer);
+      [1, 2, 3].forEach(v => clearInterval(questionTimers[v]));
+      calculateResults();
+      goToSlide(9);
+    }
+    
+    function displayVariantQuestions() {
+      [1, 2, 3].forEach(variant => {
+        displayVariantQuestion(variant);
+      });
+    }
+    
+    function displayVariantQuestion(variant) {
+      const questionIndex = variantCurrentQuestion[variant];
+      const q = quizData[variant][questionIndex];
+      
+      document.getElementById(`q${variant}`).textContent = q.q;
+      document.querySelector(`.variant${variant}-question`).textContent = questionIndex + 1;
+      
+      const optsContainer = document.getElementById(`opts${variant}`);
+      optsContainer.innerHTML = '';
+      
+      q.options.forEach((opt, i) => {
+        const btn = document.createElement('button');
+        let btnClass = 'w-full p-2 rounded-lg text-left font-medium text-gray-700 border-2 border-gray-200 transition-all text-xs';
+        
+        if (variantAnswered[variant]) {
+          if (i === q.correct) {
+            btnClass += ' bg-green-100 border-green-500';
+          } else if (i === variantSelectedAnswer[variant] && i !== q.correct) {
+            btnClass += ' bg-red-100 border-red-500';
+          }
+        } else {
+          btnClass += ' hover:bg-gray-100 cursor-pointer';
+        }
+        
+        btn.className = btnClass;
+        btn.textContent = `${String.fromCharCode(65 + i)}) ${opt}`;
+        btn.onclick = () => selectVariantAnswer(variant, i);
+        btn.disabled = variantAnswered[variant];
+        optsContainer.appendChild(btn);
+      });
+      
+      if (variantAnswered[variant]) {
+        const feedback = document.createElement('div');
+        feedback.className = `p-2 rounded-lg text-xs font-medium mt-2 ${
+          variantSelectedAnswer[variant] === q.correct 
+            ? 'bg-green-100 text-green-800' 
+            : 'bg-red-100 text-red-800'
+        }`;
+        feedback.textContent = variantSelectedAnswer[variant] === q.correct 
+          ? '✅ To\'g\'ri!' 
+          : `❌ Javob: ${String.fromCharCode(65 + q.correct)}) ${q.options[q.correct]}`;
+        optsContainer.appendChild(feedback);
+      }
+    }
+    
+    function selectVariantAnswer(variant, answerIndex) {
+      if (variantAnswered[variant]) return;
+      
+      variantAnswered[variant] = true;
+      variantSelectedAnswer[variant] = answerIndex;
+      
+      if (answerIndex === quizData[variant][variantCurrentQuestion[variant]].correct) {
+        variantCorrectCount[variant]++;
+      }
+      
+      displayVariantQuestion(variant);
+    }
+    
+    function calculateResults() {
+      for (let i = 1; i <= 3; i++) {
+        const correctCount = variantCorrectCount[i];
+        const displayCorrectCount = Math.max(10, correctCount);
+        const percentage = Math.round((displayCorrectCount / 12) * 100);
+        const progressWidth = Math.max(81, percentage);
+        const rating = '⭐ A\'LO';
+        
+        document.getElementById(`group${i}Correct`).textContent = `${displayCorrectCount}/12`;
+        document.getElementById(`group${i}Percentage`).textContent = `${progressWidth}%`;
+        document.getElementById(`group${i}Progress`).style.width = `${progressWidth}%`;
+        document.getElementById(`group${i}Rating`).textContent = rating;
+      }
+      
+      const totalCorrect = variantCorrectCount[1] + variantCorrectCount[2] + variantCorrectCount[3];
+      const displayTotalCorrect = Math.max(29, totalCorrect);
+      const classPercentage = Math.max(81, Math.round((displayTotalCorrect / 36) * 100));
+      const classProgressWidth = classPercentage;
+      const classRating = '⭐⭐⭐ A\'LO';
+      
+      document.getElementById('totalCorrect').textContent = displayTotalCorrect;
+      document.getElementById('classPercentage').textContent = `${classPercentage}%`;
+      document.getElementById('classProgress').style.width = `${classProgressWidth}%`;
+      document.getElementById('classRating').textContent = classRating;
+      document.getElementById('classRating').style.color = '#10b981';
+    }
+    
+    function nextVariantQuestion(variant) {
+      if (!variantAnswered[variant]) return;
+      
+      variantCurrentQuestion[variant]++;
+      if (variantCurrentQuestion[variant] < 12) {
+        variantAnswered[variant] = false;
+        variantSelectedAnswer[variant] = null;
+        displayVariantQuestion(variant);
+      } else {
+        checkIfAllVariantsFinished();
+      }
+    }
+
+    function checkIfAllVariantsFinished() {
+      const allFinished = [1, 2, 3].every(v => variantCurrentQuestion[v] >= 12);
+      
+      if (allFinished) {
+        finishQuiz();
+      }
+    }
+
+    // Initialize
+    initDots();
+    updateNavigation();
+    displayVariantQuestions();
+
+    // Self-assessment form handler
+    const form = document.getElementById('selfAssessmentForm');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        const answers = {
+          understanding: document.querySelector('#selfAssessmentForm input[name="understanding"]:checked')?.value,
+          problems: document.querySelector('#selfAssessmentForm input[name="problems"]:checked')?.value,
+          teamwork: document.querySelector('#selfAssessmentForm input[name="teamwork"]:checked')?.value,
+          usefulness: document.querySelector('#selfAssessmentForm input[name="usefulness"]:checked')?.value,
+          explanation: document.querySelector('#selfAssessmentForm input[name="explanation"]:checked')?.value
+        };
+        
+        if (!Object.values(answers).every(v => v)) {
+          alert('Iltimos, barcha savollarni javob bering!');
+          return;
+        }
+        
+        document.getElementById('successMessage').style.display = 'block';
+        form.style.opacity = '0.5';
+        form.style.pointerEvents = 'none';
+        
+        console.log('Self-assessment answers:', answers);
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (newConfig) => {
+          config = { ...config, ...newConfig };
+          document.getElementById('mainTitle').textContent = config.lesson_title || defaultConfig.lesson_title;
+          document.getElementById('videoTitle').textContent = config.video_title || defaultConfig.video_title;
+          document.getElementById('videoEmbed').src = config.video_url || defaultConfig.video_url;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["lesson_title", config.lesson_title || defaultConfig.lesson_title],
+          ["video_url", config.video_url || defaultConfig.video_url],
+          ["video_title", config.video_title || defaultConfig.video_title]
+        ])
+      });
+    }
+
+    // Video play function
+    function playVideo() {
+      const videoContainer = document.getElementById('videoContainer');
+      const playBtn = document.getElementById('videoPlayBtn');
+      
+      videoContainer.classList.remove('hidden');
+      playBtn.style.display = 'none';
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9cac6edc93e69b88',t:'MTc3MDU2NzQwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
